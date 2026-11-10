@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- EDITAR: título da página -->
+  <title>Estatística para Ciência de Dados e IA em Python | ICMC-USP</title>
+  <!-- EDITAR: description (datas e identificação do curso) -->
+  <meta name="description" content="Estatística para Ciência de Dados e Inteligência Artificial em Python. ICMC-USP, 100% a distância (EAD), 60 horas. Aulas de 13/03/2027 a 13/05/2027. Inscrições de 01/12/2026 a 28/02/2027.">
+  <!-- EDITAR: domínio previsto do site (canonical) -->
+  <link rel="canonical" href="https://estatcdia.icmc.usp.br/">
+  <meta name="theme-color" content="#3D5168">
+  <!-- Metadados Open Graph e Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ICMC-USP">
+  <!-- EDITAR: título para compartilhamento -->
+  <meta property="og:title" content="Estatística para Ciência de Dados e Inteligência Artificial em Python | ICMC-USP">
+  <!-- EDITAR: description para compartilhamento (datas do curso) -->
+  <meta property="og:description" content="Estatística para Ciência de Dados e Inteligência Artificial em Python. ICMC-USP, 100% a distância (EAD), 60 horas. Aulas de 13/03/2027 a 13/05/2027. Inscrições de 01/12/2026 a 28/02/2027.">
+  <!-- EDITAR: domínio previsto do site (og:url) -->
+  <meta property="og:url" content="https://estatcdia.icmc.usp.br/">
+  <!-- EDITAR: domínio previsto do site (og:image) -->
+  <meta property="og:image" content="https://estatcdia.icmc.usp.br/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Estatística para Ciência de Dados e Inteligência Artificial em Python. ICMC-USP.">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- EDITAR: título para Twitter -->
+  <meta name="twitter:title" content="Estatística para Ciência de Dados e Inteligência Artificial em Python | ICMC-USP">
+  <!-- EDITAR: description para Twitter (datas do curso) -->
+  <meta name="twitter:description" content="Estatística para Ciência de Dados e Inteligência Artificial em Python. ICMC-USP, 100% a distância (EAD), 60 horas. Aulas de 13/03/2027 a 13/05/2027. Inscrições de 01/12/2026 a 28/02/2027.">
+  <!-- EDITAR: domínio previsto do site (twitter:image) -->
+  <meta name="twitter:image" content="https://estatcdia.icmc.usp.br/img/og-image.png">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- EDITAR: JSON-LD (domínio, datas, valores, e-mail, código, edição e link do Apolo) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Estatística para Ciência de Dados e Inteligência Artificial em Python",
+    "description": "Curso 100% a distância (EAD) do Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP), com 60 horas. Aulas de 13/03/2027 a 13/05/2027. Inscrições de 01/12/2026 a 28/02/2027. Ambiente: Moodle – cursos de extensão USP.",
+    "url": "https://estatcdia.icmc.usp.br/",
+    "courseCode": "550300021",
+    "timeRequired": "PT60H",
+    "courseMode": "online",
+    "inLanguage": "pt-BR",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP)",
+      "email": "estatcdia@icmc.usp.br"
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": "Cibele Maria Russo",
+      "honorificPrefix": "Profa."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1399.00",
+      "priceCurrency": "BRL",
+      "url": "https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqofeedi=1"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "startDate": "2027-03-13",
+      "endDate": "2027-05-13",
+      "identifier": "26002"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="site-logo" href="#conteudo">
+        <picture>
+          <source type="image/webp" srcset="img/logo-icmc-faixa-laranja-sm.webp 480w, img/logo-icmc-faixa-laranja.webp 960w" sizes="200px">
+          <img src="img/logo-icmc-faixa-laranja-sm.png" srcset="img/logo-icmc-faixa-laranja-sm.png 480w, img/logo-icmc-faixa-laranja.png 960w" sizes="200px" width="480" height="216" alt="Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP), São Carlos">
+        </picture>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="menu" aria-label="Seções da página">
+        <ul class="nav-list">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#aprender">Aprender</a></li>
+          <li><a href="#programa">Programa</a></li>
+          <li><a href="#calendario">Calendário</a></li>
+          <li><a href="#investimento">Investimento</a></li>
+          <li><a href="#bolsas">Bolsas</a></li>
+          <li><a href="#coordenacao">Coordenação</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <!-- EDITAR: link de inscrição no Sistema Apolo -->
+        <a class="btn btn-laranja nav-cta" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="titulo-curso">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="hero-kicker">100% EAD · 60 horas · ICMC-USP</p>
+          <h1 id="titulo-curso">Estatística para Ciência de Dados e Inteligência Artificial em Python</h1>
+          <div class="hero-actions">
+            <!-- EDITAR: link de inscrição no Sistema Apolo -->
+            <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+            <!-- EDITAR: link do formulário de bolsa -->
+            <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+          </div>
+          <div class="hero-dates">
+            <div class="hero-date">
+              <p class="hero-date-label">Inscrições</p>
+              <p class="hero-date-value">
+                <!-- EDITAR: início das inscrições -->
+                <time datetime="2026-12-01">01/12/2026</time>
+                a
+                <!-- EDITAR: fim das inscrições -->
+                <time datetime="2027-02-28">28/02/2027</time>
+              </p>
+            </div>
+            <div class="hero-date">
+              <p class="hero-date-label">Pedido de bolsa</p>
+              <p class="hero-date-value">
+                até
+                <!-- EDITAR: prazo para pedido de bolsa -->
+                <time datetime="2027-01-15">15/01/2027</time>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="logo-curso-placeholder" aria-hidden="true">Espaço reservado para a logo do curso</div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre" aria-labelledby="titulo-sobre">
+      <div class="wrap">
+        <h2 id="titulo-sobre">Sobre o curso</h2>
+        <div class="grid-3">
+          <article class="card">
+            <p class="card-label">Modalidade</p>
+            <p>100% a distância (EAD)</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Carga horária</p>
+            <p>60 horas</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Ambiente</p>
+            <p>Moodle – cursos de extensão USP</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Instituição</p>
+            <p>Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP)</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Identificação</p>
+            <p>
+              Código
+              <!-- EDITAR: código do curso -->
+              550300021
+              |
+              Edição
+              <!-- EDITAR: edição do curso -->
+              26002
+            </p>
+          </article>
+          <article class="card">
+            <p class="card-label">Aulas</p>
+            <p>
+              <!-- EDITAR: início das aulas -->
+              <time datetime="2027-03-13">13/03/2027</time>
+              a
+              <!-- EDITAR: término das aulas -->
+              <time datetime="2027-05-13">13/05/2027</time>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="aprender" aria-labelledby="titulo-aprender">
+      <div class="wrap">
+        <h2 id="titulo-aprender">O que você vai aprender</h2>
+        <p class="section-lead">O curso é organizado em 4 módulos de 15 horas.</p>
+        <div class="grid-2">
+          <article class="card">
+            <p class="card-label">Módulo 1</p>
+            <h3>Fundamentos de Estatística para Ciência de Dados e IA</h3>
+            <ul class="tags">
+              <li>NumPy</li>
+              <li>pandas</li>
+              <li>Matplotlib</li>
+              <li>Seaborn</li>
+              <li>preparação de dados</li>
+              <li>estatística descritiva</li>
+              <li>probabilidade</li>
+              <li>distribuições</li>
+              <li>análise exploratória</li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="card-label">Módulo 2</p>
+            <h3>Inferência, Modelagem Estatística e Desenho Experimental</h3>
+            <ul class="tags">
+              <li>Intervalos de confiança</li>
+              <li>testes de hipóteses</li>
+              <li>regressão linear e logística</li>
+              <li>validação de modelos</li>
+              <li>Ridge</li>
+              <li>Lasso</li>
+              <li>aleatorização</li>
+              <li>blocagem</li>
+              <li>ANOVA</li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="card-label">Módulo 3</p>
+            <h3>Séries Temporais e Modelos Preditivos</h3>
+            <ul class="tags">
+              <li>Tendência</li>
+              <li>sazonalidade</li>
+              <li>estacionariedade</li>
+              <li>ARIMA</li>
+              <li>avaliação de previsões</li>
+              <li>redes neurais recorrentes</li>
+              <li>LSTM</li>
+              <li>GRU</li>
+              <li>Chronos</li>
+              <li>TimesFM</li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="card-label">Módulo 4</p>
+            <h3>Inferência Bayesiana e Causal para Ciência de Dados</h3>
+            <ul class="tags">
+              <li>Teorema de Bayes</li>
+              <li>priori e posteriori</li>
+              <li>intervalos de credibilidade</li>
+              <li>efeitos causais</li>
+              <li>confundimento</li>
+              <li>grafos causais (DAGs)</li>
+              <li>dados observacionais</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publico" aria-labelledby="titulo-publico">
+      <div class="wrap">
+        <h2 id="titulo-publico">Para quem é</h2>
+        <div class="grid-2">
+          <article class="card">
+            <p class="card-label">Público-alvo</p>
+            <p>Profissionais, pesquisadores e estudantes de Ciência de Dados, Estatística, Matemática, Computação, Engenharia, Saúde e áreas afins.</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Pré-requisito</p>
+            <p>Graduação (com possibilidade de análise para quem está matriculado em graduação ou tem experiência comprovada).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="programa" aria-labelledby="titulo-programa">
+      <div class="wrap">
+        <h2 id="titulo-programa">Programa</h2>
+        <p class="section-lead">4 módulos de 15 horas.</p>
+        <div class="grid-2">
+          <article class="card">
+            <div class="modulo-meta">
+              <p>Módulo 1</p>
+              <p>
+                <!-- EDITAR: datas do módulo 1 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
+                13 a 28/03/2027
+              </p>
+            </div>
+            <h3>Fundamentos de Estatística para Ciência de Dados e IA</h3>
+            <ul class="tags">
+              <li>NumPy</li>
+              <li>pandas</li>
+              <li>Matplotlib</li>
+              <li>Seaborn</li>
+              <li>preparação de dados</li>
+              <li>estatística descritiva</li>
+              <li>probabilidade</li>
+              <li>distribuições</li>
+              <li>análise exploratória</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="modulo-meta">
+              <p>Módulo 2</p>
+              <p>
+                <!-- EDITAR: datas do módulo 2 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
+                27/03 a 11/04/2027
+              </p>
+            </div>
+            <h3>Inferência, Modelagem Estatística e Desenho Experimental</h3>
+            <ul class="tags">
+              <li>Intervalos de confiança</li>
+              <li>testes de hipóteses</li>
+              <li>regressão linear e logística</li>
+              <li>validação de modelos</li>
+              <li>Ridge</li>
+              <li>Lasso</li>
+              <li>aleatorização</li>
+              <li>blocagem</li>
+              <li>ANOVA</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="modulo-meta">
+              <p>Módulo 3</p>
+              <p>
+                <!-- EDITAR: datas do módulo 3 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
+                10 a 25/04/2027
+              </p>
+            </div>
+            <h3>Séries Temporais e Modelos Preditivos</h3>
+            <ul class="tags">
+              <li>Tendência</li>
+              <li>sazonalidade</li>
+              <li>estacionariedade</li>
+              <li>ARIMA</li>
+              <li>avaliação de previsões</li>
+              <li>redes neurais recorrentes</li>
+              <li>LSTM</li>
+              <li>GRU</li>
+              <li>Chronos</li>
+              <li>TimesFM</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="modulo-meta">
+              <p>Módulo 4</p>
+              <p>
+                <!-- EDITAR: datas do módulo 4 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
+                24/04 a 13/05/2027
+              </p>
+            </div>
+            <h3>Inferência Bayesiana e Causal para Ciência de Dados</h3>
+            <ul class="tags">
+              <li>Teorema de Bayes</li>
+              <li>priori e posteriori</li>
+              <li>intervalos de credibilidade</li>
+              <li>efeitos causais</li>
+              <li>confundimento</li>
+              <li>grafos causais (DAGs)</li>
+              <li>dados observacionais</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="trilha">
+          <h3>Linha do tempo das aulas</h3>
+          <p>
+            <!-- EDITAR: início das aulas -->
+            <time datetime="2027-03-13">13/03/2027</time>
+            a
+            <!-- EDITAR: término das aulas -->
+            <time datetime="2027-05-13">13/05/2027</time>
+          </p>
+          <div class="trilha-eixo" aria-hidden="true">
+            <span class="trilha-marcador trilha-marcador-ini">13/03</span>
+            <span class="trilha-marcador trilha-marcador-abr">01/04</span>
+            <span class="trilha-marcador trilha-marcador-mai">01/05</span>
+            <span class="trilha-marcador trilha-marcador-fim">13/05</span>
+          </div>
+          <ol class="trilha-lista">
+            <li>
+              <div class="trilha-item-cabeca">
+                <strong>Módulo 1</strong>
+                <!-- EDITAR: datas do módulo 1 (se alterar, ajuste .trilha-barra-m1 em css/style.css) -->
+                <span>13 a 28/03/2027</span>
+              </div>
+              <div class="trilha-pista">
+                <span class="trilha-barra trilha-barra-m1"></span>
+              </div>
+            </li>
+            <li>
+              <div class="trilha-item-cabeca">
+                <strong>Módulo 2</strong>
+                <!-- EDITAR: datas do módulo 2 (se alterar, ajuste .trilha-barra-m2 em css/style.css) -->
+                <span>27/03 a 11/04/2027</span>
+              </div>
+              <div class="trilha-pista">
+                <span class="trilha-barra trilha-barra-m2"></span>
+              </div>
+            </li>
+            <li>
+              <div class="trilha-item-cabeca">
+                <strong>Módulo 3</strong>
+                <!-- EDITAR: datas do módulo 3 (se alterar, ajuste .trilha-barra-m3 em css/style.css) -->
+                <span>10 a 25/04/2027</span>
+              </div>
+              <div class="trilha-pista">
+                <span class="trilha-barra trilha-barra-m3"></span>
+              </div>
+            </li>
+            <li>
+              <div class="trilha-item-cabeca">
+                <strong>Módulo 4</strong>
+                <!-- EDITAR: datas do módulo 4 (se alterar, ajuste .trilha-barra-m4 em css/style.css) -->
+                <span>24/04 a 13/05/2027</span>
+              </div>
+              <div class="trilha-pista">
+                <span class="trilha-barra trilha-barra-m4"></span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calendario" aria-labelledby="titulo-calendario">
+      <div class="wrap">
+        <h2 id="titulo-calendario">Calendário e datas</h2>
+        <ol class="cronograma">
+          <li>
+            <!-- EDITAR: início das inscrições -->
+            <time datetime="2026-12-01">01/12/2026</time>
+            <span>Início das inscrições</span>
+          </li>
+          <li>
+            <!-- EDITAR: prazo para pedido de bolsa -->
+            <time datetime="2027-01-15">15/01/2027</time>
+            <span>Prazo para pedido de bolsa</span>
+          </li>
+          <li>
+            <!-- EDITAR: resultado das bolsas -->
+            <time datetime="2027-01-31">31/01/2027</time>
+            <span>Resultado das bolsas</span>
+          </li>
+          <li>
+            <!-- EDITAR: fim das inscrições -->
+            <time datetime="2027-02-28">28/02/2027</time>
+            <span>Fim das inscrições</span>
+          </li>
+          <li>
+            <!-- EDITAR: início das aulas -->
+            <time datetime="2027-03-13">13/03/2027</time>
+            <span>Início das aulas</span>
+          </li>
+          <li>
+            <!-- EDITAR: datas do módulo 1 -->
+            <time datetime="2027-03-13">13 a 28/03/2027</time>
+            <span>Módulo 1</span>
+          </li>
+          <li>
+            <!-- EDITAR: datas do módulo 2 -->
+            <time datetime="2027-03-27">27/03 a 11/04/2027</time>
+            <span>Módulo 2</span>
+          </li>
+          <li>
+            <!-- EDITAR: datas do módulo 3 -->
+            <time datetime="2027-04-10">10 a 25/04/2027</time>
+            <span>Módulo 3</span>
+          </li>
+          <li>
+            <!-- EDITAR: datas do módulo 4 -->
+            <time datetime="2027-04-24">24/04 a 13/05/2027</time>
+            <span>Módulo 4</span>
+          </li>
+          <li>
+            <!-- EDITAR: término das aulas -->
+            <time datetime="2027-05-13">13/05/2027</time>
+            <span>Término das aulas</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="investimento" aria-labelledby="titulo-investimento">
+      <div class="wrap">
+        <h2 id="titulo-investimento">Investimento e como se inscrever</h2>
+        <div class="grid-3 precos">
+          <article class="card">
+            <p class="card-label">Taxa de inscrição</p>
+            <!-- EDITAR: taxa de inscrição -->
+            <p class="preco-valor">R$ 100,00</p>
+            <p>
+              via
+              <!-- EDITAR: forma de pagamento da taxa -->
+              PIX
+            </p>
+          </article>
+          <article class="card">
+            <p class="card-label">Valor do curso</p>
+            <!-- EDITAR: valor do curso -->
+            <p class="preco-valor">R$ 1.299,00</p>
+            <p>
+              por
+              <!-- EDITAR: formas de pagamento do curso -->
+              PIX ou boleto, em até
+              <!-- EDITAR: número de parcelas do curso -->
+              3 parcelas
+            </p>
+          </article>
+          <article class="card">
+            <p class="card-label">Total para pagantes</p>
+            <!-- EDITAR: total para pagantes -->
+            <p class="preco-valor">R$ 1.399,00</p>
+          </article>
+        </div>
+
+        <h3>Como se inscrever</h3>
+        <ol class="passos">
+          <li>Preencher a inscrição no Sistema Apolo e enviar os documentos.</li>
+          <li>
+            Pagar
+            <!-- EDITAR: taxa de inscrição -->
+            R$ 100,00
+            via
+            <!-- EDITAR: forma de pagamento da taxa -->
+            PIX
+            e anexar o comprovante.
+          </li>
+          <li>Aguardar a análise.</li>
+          <li>Após a aprovação, pagar o valor do curso.</li>
+        </ol>
+
+        <div class="pix">
+          <p class="card-label">Chave PIX da taxa de inscrição</p>
+          <div class="pix-chave-linha">
+            <!-- EDITAR: chave PIX da taxa de inscrição -->
+            <p class="pix-chave" id="pix-chave">leticia.cursos@fafq.org.br</p>
+            <button class="btn btn-escuro" id="btn-copiar-pix" type="button">Copiar</button>
+          </div>
+          <p class="pix-feedback" id="pix-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bolsas" aria-labelledby="titulo-bolsas">
+      <div class="wrap">
+        <div class="bolsas-destaque">
+          <h2 id="titulo-bolsas">Bolsas</h2>
+          <div class="vagas">
+            <p class="vaga">
+              <span class="vaga-numero">
+                <!-- EDITAR: número de vagas gratuitas -->
+                45
+              </span>
+              vagas gratuitas
+            </p>
+            <p class="vaga">
+              de um total de
+              <span class="vaga-numero">
+                <!-- EDITAR: total de vagas -->
+                450
+              </span>
+              vagas
+            </p>
+          </div>
+          <p>Prioridade: mulheres cis, pessoas trans e não-binárias em vulnerabilidade socioeconômica.</p>
+          <p>
+            Pedido de bolsa até
+            <!-- EDITAR: prazo para pedido de bolsa -->
+            <time datetime="2027-01-15">15/01/2027</time>
+            |
+            Resultado até
+            <!-- EDITAR: resultado das bolsas -->
+            <time datetime="2027-01-31">31/01/2027</time>
+          </p>
+          <p>A taxa de inscrição é devolvida apenas aos contemplados.</p>
+          <!-- EDITAR: link do formulário de bolsa -->
+          <a class="btn btn-escuro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="coordenacao" aria-labelledby="titulo-coordenacao">
+      <div class="wrap">
+        <h2 id="titulo-coordenacao">Coordenação</h2>
+        <div class="coord">
+          <picture>
+            <source type="image/webp" srcset="img/foto-cibele-320.webp 320w, img/foto-cibele-640.webp 640w" sizes="(max-width: 699px) min(100vw - 2rem, 16rem), 16rem">
+            <img src="img/foto-cibele-640.jpg" srcset="img/foto-cibele-320.jpg 320w, img/foto-cibele-640.jpg 640w" sizes="(max-width: 699px) min(100vw - 2rem, 16rem), 16rem" width="640" height="640" alt="Profa. Cibele Maria Russo" loading="lazy" decoding="async">
+          </picture>
+          <div>
+            <h3>Profa. Cibele Maria Russo</h3>
+            <p>Coordenação</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="titulo-faq">
+      <div class="wrap">
+        <h2 id="titulo-faq">Perguntas frequentes</h2>
+        <div class="faq-lista">
+          <details>
+            <summary>Qual é a modalidade e a carga horária?</summary>
+            <p>O curso é 100% a distância (EAD), com carga horária de 60 horas.</p>
+          </details>
+          <details>
+            <summary>Quando são as aulas e as inscrições?</summary>
+            <p>
+              As aulas ocorrem de
+              <!-- EDITAR: início das aulas -->
+              <time datetime="2027-03-13">13/03/2027</time>
+              a
+              <!-- EDITAR: término das aulas -->
+              <time datetime="2027-05-13">13/05/2027</time>.
+              As inscrições vão de
+              <!-- EDITAR: início das inscrições -->
+              <time datetime="2026-12-01">01/12/2026</time>
+              a
+              <!-- EDITAR: fim das inscrições -->
+              <time datetime="2027-02-28">28/02/2027</time>.
+            </p>
+          </details>
+          <details>
+            <summary>Em qual ambiente o curso é oferecido?</summary>
+            <p>Moodle – cursos de extensão USP.</p>
+          </details>
+          <details>
+            <summary>Para quem é o curso?</summary>
+            <p>Para profissionais, pesquisadores e estudantes de Ciência de Dados, Estatística, Matemática, Computação, Engenharia, Saúde e áreas afins.</p>
+          </details>
+          <details>
+            <summary>Qual é o pré-requisito?</summary>
+            <p>Graduação (com possibilidade de análise para quem está matriculado em graduação ou tem experiência comprovada).</p>
+          </details>
+          <details>
+            <summary>Qual é o investimento?</summary>
+            <p>
+              A taxa de inscrição é
+              <!-- EDITAR: taxa de inscrição -->
+              R$ 100,00, via
+              <!-- EDITAR: forma de pagamento da taxa -->
+              PIX
+              para a chave
+              <!-- EDITAR: chave PIX da taxa de inscrição -->
+              leticia.cursos@fafq.org.br.
+              O valor do curso é
+              <!-- EDITAR: valor do curso -->
+              R$ 1.299,00, por
+              <!-- EDITAR: formas de pagamento do curso -->
+              PIX ou boleto, em até
+              <!-- EDITAR: número de parcelas do curso -->
+              3 parcelas.
+              O total para pagantes é
+              <!-- EDITAR: total para pagantes -->
+              R$ 1.399,00.
+            </p>
+          </details>
+          <details>
+            <summary>Como faço a inscrição?</summary>
+            <ol>
+              <li>Preencher a inscrição no Sistema Apolo e enviar os documentos.</li>
+              <li>
+                Pagar
+                <!-- EDITAR: taxa de inscrição -->
+                R$ 100,00
+                via
+                <!-- EDITAR: forma de pagamento da taxa -->
+                PIX
+                e anexar o comprovante.
+              </li>
+              <li>Aguardar a análise.</li>
+              <li>Após a aprovação, pagar o valor do curso.</li>
+            </ol>
+          </details>
+          <details>
+            <summary>Há bolsas?</summary>
+            <p>
+              Sim. Há
+              <!-- EDITAR: número de vagas gratuitas -->
+              45
+              vagas gratuitas (de um total de
+              <!-- EDITAR: total de vagas -->
+              450
+              vagas). A prioridade é para mulheres cis, pessoas trans e não-binárias em vulnerabilidade socioeconômica. O pedido de bolsa vai até
+              <!-- EDITAR: prazo para pedido de bolsa -->
+              <time datetime="2027-01-15">15/01/2027</time>
+              e o resultado sai até
+              <!-- EDITAR: resultado das bolsas -->
+              <time datetime="2027-01-31">31/01/2027</time>.
+              O pedido é feito pelo
+              <!-- EDITAR: link do formulário de bolsa -->
+              <a href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">formulário de bolsa</a>.
+              A taxa de inscrição é devolvida apenas aos contemplados.
+            </p>
+          </details>
+          <details>
+            <summary>Quem coordena o curso?</summary>
+            <p>A Profa. Cibele Maria Russo.</p>
+          </details>
+          <details>
+            <summary>Qual é o e-mail de contato?</summary>
+            <p>
+              <!-- EDITAR: e-mail de contato -->
+              <a href="mailto:estatcdia@icmc.usp.br">estatcdia@icmc.usp.br</a>
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final" id="inscricao" aria-labelledby="titulo-cta">
+      <div class="wrap">
+        <h2 id="titulo-cta">Inscreva-se</h2>
+        <p>
+          Inscrições de
+          <!-- EDITAR: início das inscrições -->
+          <time datetime="2026-12-01">01/12/2026</time>
+          a
+          <!-- EDITAR: fim das inscrições -->
+          <time datetime="2027-02-28">28/02/2027</time>.
+          Pedido de bolsa até
+          <!-- EDITAR: prazo para pedido de bolsa -->
+          <time datetime="2027-01-15">15/01/2027</time>.
+        </p>
+        <div class="cta-acoes">
+          <!-- EDITAR: link de inscrição no Sistema Apolo -->
+          <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+          <!-- EDITAR: link do formulário de bolsa -->
+          <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <picture>
+        <source type="image/webp" srcset="img/logo-icmc-azul-sm.webp 360w, img/logo-icmc-azul.webp 720w" sizes="168px">
+        <img src="img/logo-icmc-azul-sm.png" srcset="img/logo-icmc-azul-sm.png 360w, img/logo-icmc-azul.png 720w" sizes="168px" width="360" height="162" alt="Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP), São Carlos" loading="lazy" decoding="async">
+      </picture>
+      <div>
+        <p>Estatística para Ciência de Dados e Inteligência Artificial em Python</p>
+        <p>Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP)</p>
+        <p>
+          <!-- EDITAR: e-mail de contato -->
+          <a href="mailto:estatcdia@icmc.usp.br">estatcdia@icmc.usp.br</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
