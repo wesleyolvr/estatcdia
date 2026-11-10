@@ -37,6 +37,13 @@
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Animações só com JS e sem "reduzir movimento"; sem JS a página fica estática e completa -->
+  <script>
+    (function (d) {
+      var m = window.matchMedia && window.matchMedia("(prefers-reduced-motion: no-preference)");
+      if (m && m.matches && "IntersectionObserver" in window) { d.className += " motion-ok"; }
+    })(document.documentElement);
+  </script>
   <!-- EDITAR: JSON-LD (domínio, datas, valores, e-mail, código, edição e link do Apolo) -->
   <script type="application/ld+json">
   {
@@ -76,14 +83,37 @@
   </script>
 </head>
 <body>
+  <!-- Ícones e figuras em SVG próprio (decorativos) -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 20.5h8M12 16.5V20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-notebook" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="10.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 17.5h19l-1.4 2.3H3.9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-predio" viewBox="0 0 24 24"><path d="M5.5 21V4.5h13V21M5.5 21h13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8h1.6M13.4 8H15M9 11.8h1.6M13.4 11.8H15M9 15.6h1.6M13.4 15.6H15M10.6 21v-3.2h2.8V21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-etiqueta" viewBox="0 0 24 24"><path d="M3.5 11.8V4.5h7.3l9.2 9.2-7.3 7.3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.2" cy="9.2" r="1.15" fill="currentColor"/></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.6 19.5c.5-3.3 2.7-5.1 5.4-5.1s4.9 1.8 5.4 5.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="8.6" r="2.35" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.3 14.6c2.1.4 3.7 1.9 4.1 4.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-capelo" viewBox="0 0 24 24"><path d="M2.5 10 12 5.5 21.5 10 12 14.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6.5 12.1v4c0 1.5 2.5 2.8 5.5 2.8s5.5-1.3 5.5-2.8v-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21.5 10v6.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-resultado" viewBox="0 0 24 24"><path d="M6 3.5h8.5L18 7v13.5H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 11h6M9 14.5h6M9 18h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13M17 14v5.5H4.5V7H10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5V4.5h-11v11h1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path class="traco-check" pathLength="1" d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="e-antes" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.6"/><path d="M12 7.5V12l2.8 1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="e-aberto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="selo-fundo" style="fill: var(--selo-fundo)"/><path d="M7.2 12.4l3.2 3.2 6.4-6.8" fill="none" class="selo-traco" style="stroke: var(--selo-traco)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="e-ultimos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" class="selo-fundo" style="fill: var(--selo-fundo)"/><path d="M8.5 6.5h7M8.5 17.5h7M9.3 6.8c0 3 5.4 2.6 5.4 5.2s-5.4 2.2-5.4 5.2M14.7 6.8c0 3-5.4 2.6-5.4 5.2s5.4 2.2 5.4 5.2" fill="none" class="selo-traco" style="stroke: var(--selo-traco)" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="e-encerrado" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6.2 17.8 17.8 6.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="m-1" viewBox="0 0 32 32"><path d="M4 27.5h24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6 27V21h4v6M10 27V13h4v14M14 27V7h4v20M18 27V12h4v15M22 27v-8h4v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="m-2" viewBox="0 0 32 32"><path d="M4 27.5h24M4.5 27.5V4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6 24 27 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6 20.5 27 5.5M6 27 27 12.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/><circle cx="9" cy="23" r="1.4" fill="currentColor"/><circle cx="14" cy="17.5" r="1.4" fill="currentColor"/><circle cx="19" cy="15.5" r="1.4" fill="currentColor"/><circle cx="24" cy="10" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="m-3" viewBox="0 0 32 32"><path d="M4 27.5h24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 21l3-4 3 3 3-6 3 3 3-5 3 3 3-6 3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 22 28 9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/></symbol>
+    <symbol id="m-4" viewBox="0 0 32 32"><circle cx="7" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="25" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="24" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.4 9h9.8M9 11.8l4.9 9M23 11.8l-4.9 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18.2 7.3l2.4 1.7-2.4 1.7M13.4 18.6l.8 2.6 2.3-1.2M20.2 18.8l-2.4 2.3-.6-2.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="site-logo" href="#conteudo">
         <picture>
-          <source type="image/webp" srcset="img/logo-icmc-faixa-laranja-sm.webp 480w, img/logo-icmc-faixa-laranja.webp 960w" sizes="200px">
-          <img src="img/logo-icmc-faixa-laranja-sm.png" srcset="img/logo-icmc-faixa-laranja-sm.png 480w, img/logo-icmc-faixa-laranja.png 960w" sizes="200px" width="480" height="216" alt="Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP), São Carlos">
+          <source type="image/webp" srcset="img/logo-icmc-faixa-laranja-sm.webp 480w, img/logo-icmc-faixa-laranja.webp 960w" sizes="(max-width: 1099px) 101px, 112px">
+          <img src="img/logo-icmc-faixa-laranja-sm.png" srcset="img/logo-icmc-faixa-laranja-sm.png 480w, img/logo-icmc-faixa-laranja.png 960w" sizes="(max-width: 1099px) 101px, 112px" width="480" height="216" alt="Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP), São Carlos">
         </picture>
       </a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
@@ -92,80 +122,102 @@
       <nav class="site-nav" id="menu" aria-label="Seções da página">
         <ul class="nav-list">
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#aprender">Aprender</a></li>
           <li><a href="#programa">Programa</a></li>
           <li><a href="#calendario">Calendário</a></li>
           <li><a href="#investimento">Investimento</a></li>
           <li><a href="#bolsas">Bolsas</a></li>
           <li><a href="#coordenacao">Coordenação</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#faq">Perguntas</a></li>
         </ul>
         <!-- EDITAR: link de inscrição no Sistema Apolo -->
-        <a class="btn btn-laranja nav-cta" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+        <a class="btn btn-laranja nav-cta" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener" data-botao-inscricao>Inscreva-se<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
       </nav>
     </div>
   </header>
+  <div class="menu-scrim" id="menu-scrim" hidden></div>
 
   <main id="conteudo">
     <section class="hero" aria-labelledby="titulo-curso">
+      <!-- Curva normal com a área de ±1 desvio-padrão (figura decorativa) -->
+      <svg class="hero-curva" viewBox="0 0 520 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+        <path class="hero-curva-area" d="M198.8 220 L198.8 104.8 L203.1 96.7 L211.2 81.7 L219.4 67.6 L227.5 55.0 L235.6 44.5 L243.8 36.6 L251.9 31.7 L260.0 30.0 L268.1 31.7 L276.2 36.6 L284.4 44.5 L292.5 55.0 L300.6 67.6 L308.8 81.7 L316.9 96.7 L321.2 104.8 L321.2 220 Z"/>
+        <path class="hero-curva-eixo" d="M0 220.5H520M198.8 220.5v7M260 220.5v7M321.2 220.5v7"/>
+        <path class="hero-curva-media" d="M260 30v190"/>
+        <path class="hero-curva-linha" pathLength="1" d="M0.0 220.0 L8.1 220.0 L16.2 219.9 L24.4 219.9 L32.5 219.8 L40.6 219.7 L48.8 219.5 L56.9 219.2 L65.0 218.8 L73.1 218.2 L81.2 217.3 L89.4 216.1 L97.5 214.4 L105.6 212.1 L113.8 209.1 L121.9 205.1 L130.0 200.1 L138.1 193.9 L146.2 186.3 L154.4 177.2 L162.5 166.6 L170.6 154.6 L178.8 141.3 L186.9 127.0 L195.0 112.0 L203.1 96.7 L211.2 81.7 L219.4 67.6 L227.5 55.0 L235.6 44.5 L243.8 36.6 L251.9 31.7 L260.0 30.0 L268.1 31.7 L276.2 36.6 L284.4 44.5 L292.5 55.0 L300.6 67.6 L308.8 81.7 L316.9 96.7 L325.0 112.0 L333.1 127.0 L341.2 141.3 L349.4 154.6 L357.5 166.6 L365.6 177.2 L373.8 186.3 L381.9 193.9 L390.0 200.1 L398.1 205.1 L406.2 209.1 L414.4 212.1 L422.5 214.4 L430.6 216.1 L438.8 217.3 L446.9 218.2 L455.0 218.8 L463.1 219.2 L471.2 219.5 L479.4 219.7 L487.5 219.8 L495.6 219.9 L503.8 219.9 L511.9 220.0 L520.0 220.0"/>
+      </svg>
       <div class="wrap hero-inner">
-        <div>
-          <p class="hero-kicker">100% EAD · 60 horas · ICMC-USP</p>
+        <div class="hero-texto">
+          <ul class="hero-meta">
+            <li>100% a distância (EAD)</li>
+            <li>60 horas</li>
+            <li>ICMC-USP</li>
+          </ul>
           <h1 id="titulo-curso">Estatística para Ciência de Dados e Inteligência Artificial em Python</h1>
           <div class="hero-actions">
             <!-- EDITAR: link de inscrição no Sistema Apolo -->
-            <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+            <a class="btn btn-laranja btn-pulso" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener" data-botao-inscricao>Inscreva-se<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
             <!-- EDITAR: link do formulário de bolsa -->
-            <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+            <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener" data-botao-inscricao>Solicitar bolsa<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
           </div>
           <div class="hero-dates">
-            <div class="hero-date">
-              <p class="hero-date-label">Inscrições</p>
-              <p class="hero-date-value">
+            <p>
+              <span class="hero-date-label"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>Inscrições<span class="selo" data-selo="inscricoes" aria-hidden="true"></span></span>
+              <span class="hero-date-value">
                 <!-- EDITAR: início das inscrições -->
                 <time datetime="2026-12-01">01/12/2026</time>
                 a
                 <!-- EDITAR: fim das inscrições -->
                 <time datetime="2027-02-28">28/02/2027</time>
-              </p>
-            </div>
-            <div class="hero-date">
-              <p class="hero-date-label">Pedido de bolsa</p>
-              <p class="hero-date-value">
+              </span>
+            </p>
+            <p>
+              <span class="hero-date-label"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>Pedido de bolsa<span class="selo" data-selo="bolsa" aria-hidden="true"></span></span>
+              <span class="hero-date-value">
                 até
                 <!-- EDITAR: prazo para pedido de bolsa -->
                 <time datetime="2027-01-15">15/01/2027</time>
-              </p>
-            </div>
+              </span>
+            </p>
+            <p>
+              <span class="hero-date-label"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>Aulas</span>
+              <span class="hero-date-value">
+                <!-- EDITAR: início das aulas -->
+                <time datetime="2027-03-13">13/03/2027</time>
+                a
+                <!-- EDITAR: término das aulas -->
+                <time datetime="2027-05-13">13/05/2027</time>
+              </span>
+            </p>
           </div>
         </div>
-        <div class="logo-curso-placeholder" aria-hidden="true">Espaço reservado para a logo do curso</div>
+        <!-- EDITAR: espaço reservado para a logo do curso; substitua este bloco pela imagem quando ela existir -->
+        <div class="logo-curso-placeholder" aria-hidden="true"></div>
       </div>
     </section>
 
     <section class="section" id="sobre" aria-labelledby="titulo-sobre">
       <div class="wrap">
         <h2 id="titulo-sobre">Sobre o curso</h2>
-        <div class="grid-3">
-          <article class="card">
-            <p class="card-label">Modalidade</p>
-            <p>100% a distância (EAD)</p>
-          </article>
-          <article class="card">
-            <p class="card-label">Carga horária</p>
-            <p>60 horas</p>
-          </article>
-          <article class="card">
-            <p class="card-label">Ambiente</p>
-            <p>Moodle – cursos de extensão USP</p>
-          </article>
-          <article class="card">
-            <p class="card-label">Instituição</p>
-            <p>Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP)</p>
-          </article>
-          <article class="card">
-            <p class="card-label">Identificação</p>
-            <p>
+        <dl class="ficha" data-anima>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-monitor"></use></svg>Modalidade</dt>
+            <dd>100% a distância (EAD)</dd>
+          </div>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>Carga horária</dt>
+            <dd>60 horas</dd>
+          </div>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-notebook"></use></svg>Ambiente</dt>
+            <dd>Moodle – cursos de extensão USP</dd>
+          </div>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-predio"></use></svg>Instituição</dt>
+            <dd>Instituto de Ciências Matemáticas e de Computação – Universidade de São Paulo (ICMC-USP)</dd>
+          </div>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-etiqueta"></use></svg>Identificação</dt>
+            <dd>
               Código
               <!-- EDITAR: código do curso -->
               550300021
@@ -173,185 +225,180 @@
               Edição
               <!-- EDITAR: edição do curso -->
               26002
-            </p>
-          </article>
-          <article class="card">
-            <p class="card-label">Aulas</p>
-            <p>
+            </dd>
+          </div>
+          <div class="ficha-item">
+            <dt><svg class="icone-ficha" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>Aulas</dt>
+            <dd>
               <!-- EDITAR: início das aulas -->
               <time datetime="2027-03-13">13/03/2027</time>
               a
               <!-- EDITAR: término das aulas -->
               <time datetime="2027-05-13">13/05/2027</time>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="aprender" aria-labelledby="titulo-aprender">
-      <div class="wrap">
-        <h2 id="titulo-aprender">O que você vai aprender</h2>
-        <p class="section-lead">O curso é organizado em 4 módulos de 15 horas.</p>
-        <div class="grid-2">
-          <article class="card">
-            <p class="card-label">Módulo 1</p>
-            <h3>Fundamentos de Estatística para Ciência de Dados e IA</h3>
-            <ul class="tags">
-              <li>NumPy</li>
-              <li>pandas</li>
-              <li>Matplotlib</li>
-              <li>Seaborn</li>
-              <li>preparação de dados</li>
-              <li>estatística descritiva</li>
-              <li>probabilidade</li>
-              <li>distribuições</li>
-              <li>análise exploratória</li>
-            </ul>
-          </article>
-          <article class="card">
-            <p class="card-label">Módulo 2</p>
-            <h3>Inferência, Modelagem Estatística e Desenho Experimental</h3>
-            <ul class="tags">
-              <li>Intervalos de confiança</li>
-              <li>testes de hipóteses</li>
-              <li>regressão linear e logística</li>
-              <li>validação de modelos</li>
-              <li>Ridge</li>
-              <li>Lasso</li>
-              <li>aleatorização</li>
-              <li>blocagem</li>
-              <li>ANOVA</li>
-            </ul>
-          </article>
-          <article class="card">
-            <p class="card-label">Módulo 3</p>
-            <h3>Séries Temporais e Modelos Preditivos</h3>
-            <ul class="tags">
-              <li>Tendência</li>
-              <li>sazonalidade</li>
-              <li>estacionariedade</li>
-              <li>ARIMA</li>
-              <li>avaliação de previsões</li>
-              <li>redes neurais recorrentes</li>
-              <li>LSTM</li>
-              <li>GRU</li>
-              <li>Chronos</li>
-              <li>TimesFM</li>
-            </ul>
-          </article>
-          <article class="card">
-            <p class="card-label">Módulo 4</p>
-            <h3>Inferência Bayesiana e Causal para Ciência de Dados</h3>
-            <ul class="tags">
-              <li>Teorema de Bayes</li>
-              <li>priori e posteriori</li>
-              <li>intervalos de credibilidade</li>
-              <li>efeitos causais</li>
-              <li>confundimento</li>
-              <li>grafos causais (DAGs)</li>
-              <li>dados observacionais</li>
-            </ul>
-          </article>
-        </div>
+            </dd>
+          </div>
+        </dl>
       </div>
     </section>
 
     <section class="section" id="publico" aria-labelledby="titulo-publico">
       <div class="wrap">
         <h2 id="titulo-publico">Para quem é</h2>
-        <div class="grid-2">
-          <article class="card">
-            <p class="card-label">Público-alvo</p>
-            <p>Profissionais, pesquisadores e estudantes de Ciência de Dados, Estatística, Matemática, Computação, Engenharia, Saúde e áreas afins.</p>
+        <div class="publico-grade">
+          <article class="card card-publico" data-anima>
+            <svg class="icone-publico" aria-hidden="true" focusable="false"><use href="#i-pessoas"></use></svg>
+            <h3>Público-alvo</h3>
+            <p>Profissionais, pesquisadores e estudantes de</p>
+            <ul class="publico-areas">
+              <li>Ciência de Dados</li>
+              <li>Estatística</li>
+              <li>Matemática</li>
+              <li>Computação</li>
+              <li>Engenharia</li>
+              <li>Saúde</li>
+            </ul>
+            <p>e áreas afins.</p>
           </article>
-          <article class="card">
-            <p class="card-label">Pré-requisito</p>
-            <p>Graduação (com possibilidade de análise para quem está matriculado em graduação ou tem experiência comprovada).</p>
+          <article class="card card-publico" data-anima>
+            <svg class="icone-publico" aria-hidden="true" focusable="false"><use href="#i-capelo"></use></svg>
+            <h3>Pré-requisito</h3>
+            <p class="publico-destaque">Graduação</p>
+            <p class="publico-nota">(com possibilidade de análise para quem está matriculado em graduação ou tem experiência comprovada).</p>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section section-alt" id="programa" aria-labelledby="titulo-programa">
+      <span id="aprender" class="ancora-legado"></span>
       <div class="wrap">
         <h2 id="titulo-programa">Programa</h2>
-        <p class="section-lead">4 módulos de 15 horas.</p>
-        <div class="grid-2">
-          <article class="card">
-            <div class="modulo-meta">
-              <p>Módulo 1</p>
-              <p>
-                <!-- EDITAR: datas do módulo 1 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
-                13 a 28/03/2027
-              </p>
-            </div>
-            <h3>Fundamentos de Estatística para Ciência de Dados e IA</h3>
-            <ul class="tags">
+        <p class="section-lead">4 módulos de 15 horas, 60 horas no total. 100% a distância, em Python.</p>
+        <!-- EDITAR: resumo visual da carga horária (4 módulos de 15 horas = 60 horas) -->
+        <p class="programa-resumo" data-anima>
+          <span class="resumo-item">4</span>
+          <span class="resumo-op">×</span>
+          <span class="resumo-item">15 horas</span>
+          <span class="resumo-op">=</span>
+          <span class="resumo-item resumo-total">60 horas</span>
+        </p>
+        <div class="modulos">
+          <article class="card card-modulo" data-anima>
+          <div class="modulo-topo">
+            <p class="modulo-selo">Módulo 1</p>
+            <svg class="icone-modulo" aria-hidden="true" focusable="false"><use href="#m-1"></use></svg>
+          </div>
+          <h3>Fundamentos de Estatística para Ciência de Dados e IA</h3>
+                    <p class="modulo-meta">
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+              <!-- EDITAR: datas do módulo 1 (se alterar, atualize também o gráfico do Calendário) -->
+              13 a 28/03/2027
+            </span>
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+              15 horas
+            </span>
+          </p>
+          <!-- EDITAR: frase de objetivo do módulo 1 (aguardando aprovação) -->
+          <ul class="modulo-chips">
               <li>NumPy</li>
               <li>pandas</li>
               <li>Matplotlib</li>
               <li>Seaborn</li>
+          </ul>
+          <ul class="modulo-topicos">
               <li>preparação de dados</li>
               <li>estatística descritiva</li>
               <li>probabilidade</li>
               <li>distribuições</li>
               <li>análise exploratória</li>
-            </ul>
-          </article>
-          <article class="card">
-            <div class="modulo-meta">
-              <p>Módulo 2</p>
-              <p>
-                <!-- EDITAR: datas do módulo 2 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
-                27/03 a 11/04/2027
-              </p>
-            </div>
-            <h3>Inferência, Modelagem Estatística e Desenho Experimental</h3>
-            <ul class="tags">
+          </ul>
+        </article>
+          <article class="card card-modulo" data-anima>
+          <div class="modulo-topo">
+            <p class="modulo-selo">Módulo 2</p>
+            <svg class="icone-modulo" aria-hidden="true" focusable="false"><use href="#m-2"></use></svg>
+          </div>
+          <h3>Inferência, Modelagem Estatística e Desenho Experimental</h3>
+                    <p class="modulo-meta">
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+              <!-- EDITAR: datas do módulo 2 (se alterar, atualize também o gráfico do Calendário) -->
+              27/03 a 11/04/2027
+            </span>
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+              15 horas
+            </span>
+          </p>
+          <!-- EDITAR: frase de objetivo do módulo 2 (aguardando aprovação) -->
+          <ul class="modulo-chips">
+              <li>Ridge</li>
+              <li>Lasso</li>
+          </ul>
+          <ul class="modulo-topicos">
               <li>Intervalos de confiança</li>
               <li>testes de hipóteses</li>
               <li>regressão linear e logística</li>
               <li>validação de modelos</li>
-              <li>Ridge</li>
-              <li>Lasso</li>
               <li>aleatorização</li>
               <li>blocagem</li>
               <li>ANOVA</li>
-            </ul>
-          </article>
-          <article class="card">
-            <div class="modulo-meta">
-              <p>Módulo 3</p>
-              <p>
-                <!-- EDITAR: datas do módulo 3 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
-                10 a 25/04/2027
-              </p>
-            </div>
-            <h3>Séries Temporais e Modelos Preditivos</h3>
-            <ul class="tags">
-              <li>Tendência</li>
-              <li>sazonalidade</li>
-              <li>estacionariedade</li>
+          </ul>
+        </article>
+          <article class="card card-modulo" data-anima>
+          <div class="modulo-topo">
+            <p class="modulo-selo">Módulo 3</p>
+            <svg class="icone-modulo" aria-hidden="true" focusable="false"><use href="#m-3"></use></svg>
+          </div>
+          <h3>Séries Temporais e Modelos Preditivos</h3>
+                    <p class="modulo-meta">
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+              <!-- EDITAR: datas do módulo 3 (se alterar, atualize também o gráfico do Calendário) -->
+              10 a 25/04/2027
+            </span>
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+              15 horas
+            </span>
+          </p>
+          <!-- EDITAR: frase de objetivo do módulo 3 (aguardando aprovação) -->
+          <ul class="modulo-chips">
               <li>ARIMA</li>
-              <li>avaliação de previsões</li>
-              <li>redes neurais recorrentes</li>
               <li>LSTM</li>
               <li>GRU</li>
               <li>Chronos</li>
               <li>TimesFM</li>
-            </ul>
-          </article>
-          <article class="card">
-            <div class="modulo-meta">
-              <p>Módulo 4</p>
-              <p>
-                <!-- EDITAR: datas do módulo 4 (se alterar, ajuste também a barra correspondente na linha do tempo) -->
-                24/04 a 13/05/2027
-              </p>
-            </div>
-            <h3>Inferência Bayesiana e Causal para Ciência de Dados</h3>
-            <ul class="tags">
+          </ul>
+          <ul class="modulo-topicos">
+              <li>Tendência</li>
+              <li>sazonalidade</li>
+              <li>estacionariedade</li>
+              <li>avaliação de previsões</li>
+              <li>redes neurais recorrentes</li>
+          </ul>
+        </article>
+          <article class="card card-modulo" data-anima>
+          <div class="modulo-topo">
+            <p class="modulo-selo">Módulo 4</p>
+            <svg class="icone-modulo" aria-hidden="true" focusable="false"><use href="#m-4"></use></svg>
+          </div>
+          <h3>Inferência Bayesiana e Causal para Ciência de Dados</h3>
+                    <p class="modulo-meta">
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+              <!-- EDITAR: datas do módulo 4 (se alterar, atualize também o gráfico do Calendário) -->
+              24/04 a 13/05/2027
+            </span>
+            <span>
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+              15 horas
+            </span>
+          </p>
+          <!-- EDITAR: frase de objetivo do módulo 4 (aguardando aprovação) -->
+          <ul class="modulo-topicos">
               <li>Teorema de Bayes</li>
               <li>priori e posteriori</li>
               <li>intervalos de credibilidade</li>
@@ -359,133 +406,154 @@
               <li>confundimento</li>
               <li>grafos causais (DAGs)</li>
               <li>dados observacionais</li>
-            </ul>
-          </article>
+          </ul>
+        </article>
         </div>
 
-        <div class="trilha">
-          <h3>Linha do tempo das aulas</h3>
-          <p>
-            <!-- EDITAR: início das aulas -->
-            <time datetime="2027-03-13">13/03/2027</time>
-            a
-            <!-- EDITAR: término das aulas -->
-            <time datetime="2027-05-13">13/05/2027</time>
-          </p>
-          <div class="trilha-eixo" aria-hidden="true">
-            <span class="trilha-marcador trilha-marcador-ini">13/03</span>
-            <span class="trilha-marcador trilha-marcador-abr">01/04</span>
-            <span class="trilha-marcador trilha-marcador-mai">01/05</span>
-            <span class="trilha-marcador trilha-marcador-fim">13/05</span>
-          </div>
-          <ol class="trilha-lista">
-            <li>
-              <div class="trilha-item-cabeca">
-                <strong>Módulo 1</strong>
-                <!-- EDITAR: datas do módulo 1 (se alterar, ajuste .trilha-barra-m1 em css/style.css) -->
-                <span>13 a 28/03/2027</span>
-              </div>
-              <div class="trilha-pista">
-                <span class="trilha-barra trilha-barra-m1"></span>
-              </div>
-            </li>
-            <li>
-              <div class="trilha-item-cabeca">
-                <strong>Módulo 2</strong>
-                <!-- EDITAR: datas do módulo 2 (se alterar, ajuste .trilha-barra-m2 em css/style.css) -->
-                <span>27/03 a 11/04/2027</span>
-              </div>
-              <div class="trilha-pista">
-                <span class="trilha-barra trilha-barra-m2"></span>
-              </div>
-            </li>
-            <li>
-              <div class="trilha-item-cabeca">
-                <strong>Módulo 3</strong>
-                <!-- EDITAR: datas do módulo 3 (se alterar, ajuste .trilha-barra-m3 em css/style.css) -->
-                <span>10 a 25/04/2027</span>
-              </div>
-              <div class="trilha-pista">
-                <span class="trilha-barra trilha-barra-m3"></span>
-              </div>
-            </li>
-            <li>
-              <div class="trilha-item-cabeca">
-                <strong>Módulo 4</strong>
-                <!-- EDITAR: datas do módulo 4 (se alterar, ajuste .trilha-barra-m4 em css/style.css) -->
-                <span>24/04 a 13/05/2027</span>
-              </div>
-              <div class="trilha-pista">
-                <span class="trilha-barra trilha-barra-m4"></span>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <p class="programa-acao">
+          <!-- EDITAR: link de inscrição no Sistema Apolo -->
+          <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener" data-botao-inscricao>Inscreva-se<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
+        </p>
+
       </div>
     </section>
 
     <section class="section" id="calendario" aria-labelledby="titulo-calendario">
       <div class="wrap">
         <h2 id="titulo-calendario">Calendário e datas</h2>
-        <ol class="cronograma">
-          <li>
-            <!-- EDITAR: início das inscrições -->
-            <time datetime="2026-12-01">01/12/2026</time>
-            <span>Início das inscrições</span>
-          </li>
-          <li>
-            <!-- EDITAR: prazo para pedido de bolsa -->
-            <time datetime="2027-01-15">15/01/2027</time>
-            <span>Prazo para pedido de bolsa</span>
-          </li>
-          <li>
-            <!-- EDITAR: resultado das bolsas -->
-            <time datetime="2027-01-31">31/01/2027</time>
-            <span>Resultado das bolsas</span>
-          </li>
-          <li>
-            <!-- EDITAR: fim das inscrições -->
-            <time datetime="2027-02-28">28/02/2027</time>
-            <span>Fim das inscrições</span>
-          </li>
-          <li>
-            <!-- EDITAR: início das aulas -->
-            <time datetime="2027-03-13">13/03/2027</time>
-            <span>Início das aulas</span>
-          </li>
-          <li>
-            <!-- EDITAR: datas do módulo 1 -->
-            <time datetime="2027-03-13">13 a 28/03/2027</time>
-            <span>Módulo 1</span>
-          </li>
-          <li>
-            <!-- EDITAR: datas do módulo 2 -->
-            <time datetime="2027-03-27">27/03 a 11/04/2027</time>
-            <span>Módulo 2</span>
-          </li>
-          <li>
-            <!-- EDITAR: datas do módulo 3 -->
-            <time datetime="2027-04-10">10 a 25/04/2027</time>
-            <span>Módulo 3</span>
-          </li>
-          <li>
-            <!-- EDITAR: datas do módulo 4 -->
-            <time datetime="2027-04-24">24/04 a 13/05/2027</time>
-            <span>Módulo 4</span>
-          </li>
-          <li>
-            <!-- EDITAR: término das aulas -->
-            <time datetime="2027-05-13">13/05/2027</time>
-            <span>Término das aulas</span>
-          </li>
-        </ol>
+        <div class="cal-grupos">
+          <article class="card card-calendario" data-anima>
+            <h3>Inscrições e bolsas</h3>
+            <ol class="cronograma" data-cronograma>
+              <li>
+                <!-- EDITAR: início das inscrições -->
+                <time datetime="2026-12-01">01/12/2026</time>
+                <span>Início das inscrições</span>
+              </li>
+              <li class="cronograma-marco">
+                <!-- EDITAR: prazo para pedido de bolsa -->
+                <time datetime="2027-01-15">15/01/2027</time>
+                <span>Prazo para pedido de bolsa</span>
+              </li>
+              <li>
+                <!-- EDITAR: resultado das bolsas -->
+                <time datetime="2027-01-31">31/01/2027</time>
+                <span>Resultado das bolsas</span>
+              </li>
+              <li class="cronograma-marco">
+                <!-- EDITAR: fim das inscrições -->
+                <time datetime="2027-02-28">28/02/2027</time>
+                <span>Fim das inscrições</span>
+              </li>
+            </ol>
+          </article>
+
+          <article class="card card-calendario" data-anima>
+            <h3>Aulas</h3>
+            <ol class="cronograma cronograma-aulas" data-cronograma>
+              <li>
+                <!-- EDITAR: início das aulas -->
+                <time datetime="2027-03-13">13/03/2027</time>
+                <span>Início das aulas</span>
+              </li>
+              <li>
+                <!-- EDITAR: término das aulas -->
+                <time datetime="2027-05-13">13/05/2027</time>
+                <span>Término das aulas</span>
+              </li>
+            </ol>
+
+            <div class="gantt" data-gantt data-anima>
+              <div class="gantt-eixo" aria-hidden="true">
+                <span class="gantt-marcador gantt-marcador-ini" data-gantt-marca="2027-03-13">13/03</span>
+                <span class="gantt-marcador gantt-marcador-abr" data-gantt-marca="2027-04-01">01/04</span>
+                <span class="gantt-marcador gantt-marcador-mai" data-gantt-marca="2027-05-01">01/05</span>
+                <span class="gantt-marcador gantt-marcador-fim" data-gantt-marca="2027-05-13">13/05</span>
+              </div>
+              <ol class="gantt-lista">
+                <li>
+                  <div class="gantt-cabeca">
+                    <p class="modulo-selo">Módulo 1</p>
+                    <h4>Fundamentos de Estatística para Ciência de Dados e IA</h4>
+                    <p class="gantt-datas">
+                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+                      <!-- EDITAR: datas do módulo 1 -->
+                      <time datetime="2027-03-13" data-fim="2027-03-28">13 a 28/03/2027</time>
+                    </p>
+                  </div>
+                  <div class="gantt-pista" aria-hidden="true">
+                    <span class="gantt-linha gantt-linha-ini"></span>
+                    <span class="gantt-linha gantt-linha-abr"></span>
+                    <span class="gantt-linha gantt-linha-mai"></span>
+                    <span class="gantt-linha gantt-linha-fim"></span>
+                    <span class="gantt-barra"></span>
+                  </div>
+                </li>
+                <li>
+                  <div class="gantt-cabeca">
+                    <p class="modulo-selo">Módulo 2</p>
+                    <h4>Inferência, Modelagem Estatística e Desenho Experimental</h4>
+                    <p class="gantt-datas">
+                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+                      <!-- EDITAR: datas do módulo 2 -->
+                      <time datetime="2027-03-27" data-fim="2027-04-11">27/03 a 11/04/2027</time>
+                    </p>
+                  </div>
+                  <div class="gantt-pista" aria-hidden="true">
+                    <span class="gantt-linha gantt-linha-ini"></span>
+                    <span class="gantt-linha gantt-linha-abr"></span>
+                    <span class="gantt-linha gantt-linha-mai"></span>
+                    <span class="gantt-linha gantt-linha-fim"></span>
+                    <span class="gantt-barra"></span>
+                  </div>
+                </li>
+                <li>
+                  <div class="gantt-cabeca">
+                    <p class="modulo-selo">Módulo 3</p>
+                    <h4>Séries Temporais e Modelos Preditivos</h4>
+                    <p class="gantt-datas">
+                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+                      <!-- EDITAR: datas do módulo 3 -->
+                      <time datetime="2027-04-10" data-fim="2027-04-25">10 a 25/04/2027</time>
+                    </p>
+                  </div>
+                  <div class="gantt-pista" aria-hidden="true">
+                    <span class="gantt-linha gantt-linha-ini"></span>
+                    <span class="gantt-linha gantt-linha-abr"></span>
+                    <span class="gantt-linha gantt-linha-mai"></span>
+                    <span class="gantt-linha gantt-linha-fim"></span>
+                    <span class="gantt-barra"></span>
+                  </div>
+                </li>
+                <li>
+                  <div class="gantt-cabeca">
+                    <p class="modulo-selo">Módulo 4</p>
+                    <h4>Inferência Bayesiana e Causal para Ciência de Dados</h4>
+                    <p class="gantt-datas">
+                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
+                      <!-- EDITAR: datas do módulo 4 -->
+                      <time datetime="2027-04-24" data-fim="2027-05-13">24/04 a 13/05/2027</time>
+                    </p>
+                  </div>
+                  <div class="gantt-pista" aria-hidden="true">
+                    <span class="gantt-linha gantt-linha-ini"></span>
+                    <span class="gantt-linha gantt-linha-abr"></span>
+                    <span class="gantt-linha gantt-linha-mai"></span>
+                    <span class="gantt-linha gantt-linha-fim"></span>
+                    <span class="gantt-barra"></span>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section section-alt" id="investimento" aria-labelledby="titulo-investimento">
       <div class="wrap">
         <h2 id="titulo-investimento">Investimento e como se inscrever</h2>
-        <div class="grid-3 precos">
+        <div class="precos" data-anima>
           <article class="card">
             <p class="card-label">Taxa de inscrição</p>
             <!-- EDITAR: taxa de inscrição -->
@@ -496,6 +564,7 @@
               PIX
             </p>
           </article>
+          <span class="preco-op" aria-hidden="true">+</span>
           <article class="card">
             <p class="card-label">Valor do curso</p>
             <!-- EDITAR: valor do curso -->
@@ -508,7 +577,8 @@
               3 parcelas
             </p>
           </article>
-          <article class="card">
+          <span class="preco-op" aria-hidden="true">=</span>
+          <article class="card card-total">
             <p class="card-label">Total para pagantes</p>
             <!-- EDITAR: total para pagantes -->
             <p class="preco-valor">R$ 1.399,00</p>
@@ -530,13 +600,17 @@
           <li>Aguardar a análise.</li>
           <li>Após a aprovação, pagar o valor do curso.</li>
         </ol>
+        <p class="passos-acao">
+          <!-- EDITAR: link de inscrição no Sistema Apolo -->
+          <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener" data-botao-inscricao>Inscreva-se<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
+        </p>
 
         <div class="pix">
           <p class="card-label">Chave PIX da taxa de inscrição</p>
           <div class="pix-chave-linha">
             <!-- EDITAR: chave PIX da taxa de inscrição -->
             <p class="pix-chave" id="pix-chave">leticia.cursos@fafq.org.br</p>
-            <button class="btn btn-escuro" id="btn-copiar-pix" type="button">Copiar</button>
+            <button class="btn btn-escuro btn-copiar" id="btn-copiar-pix" type="button"><svg class="icone icone-copiar" aria-hidden="true" focusable="false"><use href="#i-copiar"></use></svg><svg class="icone icone-check" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg><span class="btn-rotulo" id="pix-rotulo">Copiar</span></button>
           </div>
           <p class="pix-feedback" id="pix-feedback" role="status" aria-live="polite"></p>
         </div>
@@ -564,19 +638,41 @@
               vagas
             </p>
           </div>
+          <!-- Gráfico: 450 pontos, os 45 primeiros em destaque (se mudar as vagas, ajuste os retângulos .vagas-destaque) -->
+          <svg class="vagas-grafico" viewBox="0 0 300 150" role="img" aria-label="45 vagas gratuitas (de um total de 450 vagas)" data-anima>
+            <defs>
+              <pattern id="p-vaga-claro" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2.6" class="vaga-ponto-claro"/></pattern>
+              <pattern id="p-vaga-escuro" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3.2" class="vaga-ponto-escuro"/></pattern>
+            </defs>
+            <rect width="300" height="150" fill="url(#p-vaga-claro)"/>
+            <g class="vagas-destaque">
+              <rect class="vagas-destaque-1" width="300" height="10" fill="url(#p-vaga-escuro)"/>
+              <rect class="vagas-destaque-2" y="10" width="150" height="10" fill="url(#p-vaga-escuro)"/>
+            </g>
+          </svg>
           <p>Prioridade: mulheres cis, pessoas trans e não-binárias em vulnerabilidade socioeconômica.</p>
-          <p>
-            Pedido de bolsa até
-            <!-- EDITAR: prazo para pedido de bolsa -->
-            <time datetime="2027-01-15">15/01/2027</time>
-            |
-            Resultado até
-            <!-- EDITAR: resultado das bolsas -->
-            <time datetime="2027-01-31">31/01/2027</time>
-          </p>
+          <div class="bolsas-prazos">
+            <p class="bolsas-ficha">
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+              <span>
+                Pedido de bolsa até
+                <!-- EDITAR: prazo para pedido de bolsa -->
+                <time datetime="2027-01-15">15/01/2027</time>
+              </span>
+              <span class="selo" data-selo="bolsa" aria-hidden="true"></span>
+            </p>
+            <p class="bolsas-ficha">
+              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-resultado"></use></svg>
+              <span>
+                Resultado até
+                <!-- EDITAR: resultado das bolsas -->
+                <time datetime="2027-01-31">31/01/2027</time>
+              </span>
+            </p>
+          </div>
           <p>A taxa de inscrição é devolvida apenas aos contemplados.</p>
           <!-- EDITAR: link do formulário de bolsa -->
-          <a class="btn btn-escuro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+          <a class="btn btn-escuro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener" data-botao-inscricao>Solicitar bolsa<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
         </div>
       </div>
     </section>
@@ -586,12 +682,11 @@
         <h2 id="titulo-coordenacao">Coordenação</h2>
         <div class="coord">
           <picture>
-            <source type="image/webp" srcset="img/foto-cibele-320.webp 320w, img/foto-cibele-640.webp 640w" sizes="(max-width: 699px) min(100vw - 2rem, 16rem), 16rem">
-            <img src="img/foto-cibele-640.jpg" srcset="img/foto-cibele-320.jpg 320w, img/foto-cibele-640.jpg 640w" sizes="(max-width: 699px) min(100vw - 2rem, 16rem), 16rem" width="640" height="640" alt="Profa. Cibele Maria Russo" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="img/foto-cibele-320.webp 320w, img/foto-cibele-640.webp 640w" sizes="(max-width: 699px) min(42vw, 10.5rem), 10.5rem">
+            <img src="img/foto-cibele-640.jpg" srcset="img/foto-cibele-320.jpg 320w, img/foto-cibele-640.jpg 640w" sizes="(max-width: 699px) min(42vw, 10.5rem), 10.5rem" width="640" height="640" alt="Profa. Cibele Maria Russo" loading="lazy" decoding="async">
           </picture>
-          <div>
+          <div class="coord-texto">
             <h3>Profa. Cibele Maria Russo</h3>
-            <p>Coordenação</p>
           </div>
         </div>
       </div>
@@ -691,7 +786,7 @@
               <time datetime="2027-01-31">31/01/2027</time>.
               O pedido é feito pelo
               <!-- EDITAR: link do formulário de bolsa -->
-              <a href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">formulário de bolsa</a>.
+              <a href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">formulário de bolsa<span class="visually-hidden"> (abre em uma nova aba)</span></a>.
               A taxa de inscrição é devolvida apenas aos contemplados.
             </p>
           </details>
@@ -711,6 +806,10 @@
     </section>
 
     <section class="cta-final" id="inscricao" aria-labelledby="titulo-cta">
+      <!-- Histograma decorativo ao fundo -->
+      <svg class="cta-histograma" viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true" focusable="false" data-anima>
+        <rect x="2" y="70" width="16" height="10"/><rect x="22" y="62" width="16" height="18"/><rect x="42" y="50" width="16" height="30"/><rect x="62" y="36" width="16" height="44"/><rect x="82" y="22" width="16" height="58"/><rect x="102" y="12" width="16" height="68"/><rect x="122" y="10" width="16" height="70"/><rect x="142" y="18" width="16" height="62"/><rect x="162" y="32" width="16" height="48"/><rect x="182" y="48" width="16" height="32"/><rect x="202" y="60" width="16" height="20"/><rect x="222" y="69" width="16" height="11"/>
+      </svg>
       <div class="wrap">
         <h2 id="titulo-cta">Inscreva-se</h2>
         <p>
@@ -726,9 +825,9 @@
         </p>
         <div class="cta-acoes">
           <!-- EDITAR: link de inscrição no Sistema Apolo -->
-          <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener">Inscreva-se</a>
+          <a class="btn btn-laranja" href="https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&amp;cod_edicao=26002&amp;numseqofeedi=1" target="_blank" rel="noopener" data-botao-inscricao>Inscreva-se<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
           <!-- EDITAR: link do formulário de bolsa -->
-          <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener">Solicitar bolsa</a>
+          <a class="btn btn-claro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener" data-botao-inscricao>Solicitar bolsa<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
         </div>
       </div>
     </section>
