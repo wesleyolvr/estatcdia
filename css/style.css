@@ -1480,8 +1480,8 @@ body.menu-open .menu-scrim {
 
 .modulo-topicos li {
   position: relative;
-  margin: 0.28rem 0;
-  padding-left: 1rem;
+  margin: 0;
+  padding: 0 0 0.28rem 1rem;
   list-style: none;
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
