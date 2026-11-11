@@ -8,7 +8,7 @@ Se o domínio previsto deixar de ser `https://estatcdia.icmc.usp.br/`, atualize 
 
 ## Datas que controlam os selos e os botões (`js/main.js`)
 
-Os selos ao lado das datas (hero e Bolsas), o marcador da próxima data no Calendário, o pulso do botão **Inscreva-se** e a retirada dos botões depois do prazo são calculados por estas datas, no horário de Brasília (`America/Sao_Paulo`). Um prazo vale até o fim do dia indicado (23h59).
+Os selos ao lado das datas (hero e Bolsas), o atributo `data-estado` nos cards do Calendário, o pulso do botão **Inscreva-se** e a retirada dos botões depois do prazo são calculados por estas datas, no horário de Brasília (`America/Sao_Paulo`). Um prazo vale até o fim do dia indicado (23h59).
 
 **Se mudar uma data, mude também no HTML** (tabela **Datas exibidas na página**, abaixo): o texto da página e o JS são independentes.
 
@@ -70,53 +70,53 @@ O selo **Inscrições** usa de 01/12/2026 a 28/02/2027; o selo **Pedido de bolsa
 | link de inscrição no Sistema Apolo | hero | `index.html` | 158 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
 | link do formulário de bolsa | hero | `index.html` | 160 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
 | link de inscrição no Sistema Apolo | Programa | `index.html` | 415 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
-| link de inscrição no Sistema Apolo | Investimento | `index.html` | 605 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
-| link do formulário de bolsa | Bolsas | `index.html` | 675 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
-| link do formulário de bolsa | FAQ | `index.html` | 789 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
-| link de inscrição no Sistema Apolo | CTA final | `index.html` | 828 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
-| link do formulário de bolsa | CTA final | `index.html` | 830 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link de inscrição no Sistema Apolo | Investimento | `index.html` | 607 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
+| link do formulário de bolsa | Bolsas | `index.html` | 677 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link do formulário de bolsa | FAQ | `index.html` | 791 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link de inscrição no Sistema Apolo | CTA final | `index.html` | 830 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
+| link do formulário de bolsa | CTA final | `index.html` | 832 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
 | JSON-LD offers.url (Apolo) | head (JSON-LD) | `index.html` | 73 | `"url": "https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002` |
 
 ## E-mail
 
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
-| e-mail de contato | FAQ | `index.html` | 801 | `estatcdia@icmc.usp.br` |
-| e-mail de contato | rodapé | `index.html` | 847 | `estatcdia@icmc.usp.br` |
+| e-mail de contato | FAQ | `index.html` | 803 | `estatcdia@icmc.usp.br` |
+| e-mail de contato | rodapé | `index.html` | 849 | `estatcdia@icmc.usp.br` |
 | JSON-LD provider.email | head (JSON-LD) | `index.html` | 62 | `"email": "estatcdia@icmc.usp.br"` |
 
 ## Chave PIX
 
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
-| chave PIX da taxa de inscrição | Investimento | `index.html` | 612 | `leticia.cursos@fafq.org.br` |
-| chave PIX da taxa de inscrição | FAQ | `index.html` | 742 | `leticia.cursos@fafq.org.br.` |
+| chave PIX da taxa de inscrição | Investimento | `index.html` | 614 | `leticia.cursos@fafq.org.br` |
+| chave PIX da taxa de inscrição | FAQ | `index.html` | 744 | `leticia.cursos@fafq.org.br.` |
 
 ## Valores, parcelas e formas de pagamento
 
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
-| taxa de inscrição | Investimento | `index.html` | 560 | `R$ 100,00` |
-| forma de pagamento da taxa | Investimento | `index.html` | 564 | `PIX` |
-| valor do curso | Investimento | `index.html` | 571 | `R$ 1.299,00` |
-| formas de pagamento do curso | Investimento | `index.html` | 575 | `PIX ou boleto, em até` |
-| número de parcelas do curso | Investimento | `index.html` | 577 | `3 parcelas` |
-| total para pagantes | Investimento | `index.html` | 584 | `R$ 1.399,00` |
-| taxa de inscrição | Investimento | `index.html` | 594 | `R$ 100,00` |
-| forma de pagamento da taxa | Investimento | `index.html` | 597 | `PIX` |
-| taxa de inscrição | FAQ | `index.html` | 737 | `R$ 100,00, via` |
-| forma de pagamento da taxa | FAQ | `index.html` | 739 | `PIX` |
-| valor do curso | FAQ | `index.html` | 745 | `R$ 1.299,00, por` |
-| formas de pagamento do curso | FAQ | `index.html` | 747 | `PIX ou boleto, em até` |
-| número de parcelas do curso | FAQ | `index.html` | 749 | `3 parcelas.` |
-| total para pagantes | FAQ | `index.html` | 752 | `R$ 1.399,00.` |
-| taxa de inscrição | FAQ | `index.html` | 762 | `R$ 100,00` |
-| forma de pagamento da taxa | FAQ | `index.html` | 765 | `PIX` |
+| taxa de inscrição | Investimento | `index.html` | 562 | `R$ 100,00` |
+| forma de pagamento da taxa | Investimento | `index.html` | 566 | `PIX` |
+| valor do curso | Investimento | `index.html` | 573 | `R$ 1.299,00` |
+| formas de pagamento do curso | Investimento | `index.html` | 577 | `PIX ou boleto, em até` |
+| número de parcelas do curso | Investimento | `index.html` | 579 | `3 parcelas` |
+| total para pagantes | Investimento | `index.html` | 586 | `R$ 1.399,00` |
+| taxa de inscrição | Investimento | `index.html` | 596 | `R$ 100,00` |
+| forma de pagamento da taxa | Investimento | `index.html` | 599 | `PIX` |
+| taxa de inscrição | FAQ | `index.html` | 739 | `R$ 100,00, via` |
+| forma de pagamento da taxa | FAQ | `index.html` | 741 | `PIX` |
+| valor do curso | FAQ | `index.html` | 747 | `R$ 1.299,00, por` |
+| formas de pagamento do curso | FAQ | `index.html` | 749 | `PIX ou boleto, em até` |
+| número de parcelas do curso | FAQ | `index.html` | 751 | `3 parcelas.` |
+| total para pagantes | FAQ | `index.html` | 754 | `R$ 1.399,00.` |
+| taxa de inscrição | FAQ | `index.html` | 764 | `R$ 100,00` |
+| forma de pagamento da taxa | FAQ | `index.html` | 767 | `PIX` |
 | JSON-LD offers.price | head (JSON-LD) | `index.html` | 71 | `"price": "1399.00"` |
 
 ## Datas exibidas na página
 
-Nas linhas com `<time datetime="AAAA-MM-DD">`, troque também o `datetime` (e o `data-fim` dos módulos no gráfico do Calendário): o marcador da próxima data no Calendário e as barras do gráfico leem esses atributos. O JavaScript recalcula a posição das barras a partir do início e do término em `.cronograma-aulas` e das datas de cada módulo; o texto visível e o JS das datas oficiais em `js/main.js` continuam independentes.
+Nas linhas com `<time datetime="AAAA-MM-DD">`, troque também o `datetime` (e o `data-fim` dos módulos no gráfico do Calendário): o JS marca `data-estado` nos cards do Calendário e as barras do gráfico leem esses atributos. O JavaScript recalcula a posição das barras a partir do início e do término em `.cronograma-aulas` e das datas de cada módulo; o texto visível e o JS das datas oficiais em `js/main.js` continuam independentes.
 
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
@@ -135,27 +135,27 @@ Nas linhas com `<time datetime="AAAA-MM-DD">`, troque também o `datetime` (e o 
 | prazo para pedido de bolsa | Calendário | `index.html` | 435 | `15/01/2027` |
 | resultado das bolsas | Calendário | `index.html` | 440 | `31/01/2027` |
 | fim das inscrições | Calendário | `index.html` | 445 | `28/02/2027` |
-| início das aulas | Calendário | `index.html` | 456 | `13/03/2027` |
-| término das aulas | Calendário | `index.html` | 461 | `13/05/2027` |
-| datas do módulo 1 | Calendário (gráfico) | `index.html` | 481 | `13 a 28/03/2027` |
-| datas do módulo 2 | Calendário (gráfico) | `index.html` | 499 | `27/03 a 11/04/2027` |
-| datas do módulo 3 | Calendário (gráfico) | `index.html` | 517 | `10 a 25/04/2027` |
-| datas do módulo 4 | Calendário (gráfico) | `index.html` | 535 | `24/04 a 13/05/2027` |
-| prazo para pedido de bolsa | Bolsas | `index.html` | 660 | `15/01/2027` |
-| resultado das bolsas | Bolsas | `index.html` | 669 | `31/01/2027` |
-| início das aulas | FAQ | `index.html` | 708 | `13/03/2027` |
-| término das aulas | FAQ | `index.html` | 711 | `13/05/2027.` |
-| início das inscrições | FAQ | `index.html` | 714 | `01/12/2026` |
-| fim das inscrições | FAQ | `index.html` | 717 | `28/02/2027.` |
-| prazo para pedido de bolsa | FAQ | `index.html` | 783 | `15/01/2027` |
-| resultado das bolsas | FAQ | `index.html` | 786 | `31/01/2027.` |
-| início das inscrições | CTA final | `index.html` | 818 | `01/12/2026` |
-| fim das inscrições | CTA final | `index.html` | 821 | `28/02/2027.` |
-| prazo para pedido de bolsa | CTA final | `index.html` | 824 | `15/01/2027.` |
+| início das aulas | Calendário | `index.html` | 455 | `13/03` |
+| término das aulas | Calendário | `index.html` | 458 | `13/05/2027` |
+| datas do módulo 1 | Calendário (gráfico) | `index.html` | 485 | `13 a 28/03/2027` |
+| datas do módulo 2 | Calendário (gráfico) | `index.html` | 502 | `27/03 a 11/04/2027` |
+| datas do módulo 3 | Calendário (gráfico) | `index.html` | 519 | `10 a 25/04/2027` |
+| datas do módulo 4 | Calendário (gráfico) | `index.html` | 536 | `24/04 a 13/05/2027` |
+| prazo para pedido de bolsa | Bolsas | `index.html` | 662 | `15/01/2027` |
+| resultado das bolsas | Bolsas | `index.html` | 671 | `31/01/2027` |
+| início das aulas | FAQ | `index.html` | 710 | `13/03/2027` |
+| término das aulas | FAQ | `index.html` | 713 | `13/05/2027.` |
+| início das inscrições | FAQ | `index.html` | 716 | `01/12/2026` |
+| fim das inscrições | FAQ | `index.html` | 719 | `28/02/2027.` |
+| prazo para pedido de bolsa | FAQ | `index.html` | 785 | `15/01/2027` |
+| resultado das bolsas | FAQ | `index.html` | 788 | `31/01/2027.` |
+| início das inscrições | CTA final | `index.html` | 820 | `01/12/2026` |
+| fim das inscrições | CTA final | `index.html` | 823 | `28/02/2027.` |
+| prazo para pedido de bolsa | CTA final | `index.html` | 826 | `15/01/2027.` |
 | JSON-LD startDate | head (JSON-LD) | `index.html` | 78 | `"startDate": "2027-03-13"` |
 | JSON-LD endDate | head (JSON-LD) | `index.html` | 79 | `"endDate": "2027-05-13"` |
 
-As datas 15/01/2027 e 28/02/2027 usam a classe `cronograma-marco` (marcador laranja maior e data em negrito). Não acrescente texto ou selo novo.
+As datas 15/01/2027 e 28/02/2027 usam a classe `cronograma-marco` (faixa laranja no topo do card e pílula laranja com texto `#1A1A1A`). As outras datas usam pílula azul clara. Não acrescente texto ou selo novo.
 
 ## Código, edição e vagas
 
@@ -163,10 +163,10 @@ As datas 15/01/2027 e 28/02/2027 usam a classe `cronograma-marco` (marcador lara
 | --- | --- | --- | ---: | --- |
 | código do curso | Sobre | `index.html` | 223 | `550300021` |
 | edição do curso | Sobre | `index.html` | 227 | `26002` |
-| número de vagas gratuitas | Bolsas | `index.html` | 628 | `45` |
-| total de vagas | Bolsas | `index.html` | 636 | `450` |
-| número de vagas gratuitas | FAQ | `index.html` | 777 | `45` |
-| total de vagas | FAQ | `index.html` | 780 | `450` |
+| número de vagas gratuitas | Bolsas | `index.html` | 630 | `45` |
+| total de vagas | Bolsas | `index.html` | 638 | `450` |
+| número de vagas gratuitas | FAQ | `index.html` | 779 | `45` |
+| total de vagas | FAQ | `index.html` | 782 | `450` |
 | JSON-LD courseCode | head (JSON-LD) | `index.html` | 55 | `"courseCode": "550300021"` |
 | JSON-LD identifier (edição) | head (JSON-LD) | `index.html` | 80 | `"identifier": "26002"` |
 
@@ -200,19 +200,19 @@ Ainda não há arquivo da logo do curso. O espaço reservado está em `index.htm
 
 ## Gráfico de vagas (Bolsas)
 
-São 450 pontos (30 colunas × 15 linhas); os 45 primeiros ficam em destaque: uma linha inteira (30) em `index.html`, linha 649, mais 15 pontos da linha seguinte (`width="150"`, 15 × 10) na linha 650. Se o número de vagas mudar, ajuste essas larguras (10 por ponto) e o `aria-label` do `<svg class="vagas-grafico">`.
+São 450 pontos (30 colunas × 15 linhas); os 45 primeiros ficam em destaque: uma linha inteira (30) em `index.html`, linha 651, mais 15 pontos da linha seguinte (`width="150"`, 15 × 10) na linha 652. Se o número de vagas mudar, ajuste essas larguras (10 por ponto) e o `aria-label` do `<svg class="vagas-grafico">`.
 
 ## Gráfico das aulas (Calendário)
 
-As barras e as linhas verticais do gráfico são calculadas pelo JavaScript a partir dos `datetime` e `data-fim` de cada módulo e das datas de início e término em `.cronograma-aulas`. O intervalo atual (13/03/2027 a 13/05/2027) tem 61 dias; o último dia de cada módulo entra na barra. Sem JavaScript, valem as porcentagens abaixo.
+As barras e as linhas verticais do gráfico são calculadas pelo JavaScript a partir dos `datetime` e `data-fim` de cada módulo e das datas de início e término em `.cronograma-aulas` (a linha “13/03 a 13/05/2027 · 60 horas” no card Aulas). O intervalo atual (13/03/2027 a 13/05/2027) tem 61 dias; o último dia de cada módulo entra na barra. Sem JavaScript, valem as porcentagens abaixo.
 
-Se mudar as datas de um módulo, atualize o texto visível, o `datetime` e o `data-fim` no gráfico e no card do Programa. Se mudar o início ou o término das aulas, atualize o cronograma de Aulas; o JavaScript reposiciona as barras e sincroniza os rótulos de início e de término do eixo. Os rótulos 01/04 e 01/05 são marcas de calendário (`data-gantt-marca` no eixo, `index.html` linhas 469 e 470) e só precisam mudar se o período deixar de cobrir esses dias.
+Se mudar as datas de um módulo, atualize o texto visível, o `datetime` e o `data-fim` no gráfico e no card do Programa. Se mudar o início ou o término das aulas, atualize os dois `<time>` em `.cronograma-aulas`; o JavaScript reposiciona as barras e sincroniza os rótulos de início e de término do eixo. Os rótulos 01/04 e 01/05 são marcas de calendário (`data-gantt-marca` no eixo, `index.html` linhas 466 e 467) e só precisam mudar se o período deixar de cobrir esses dias.
 
 | O que editar | Arquivo | Linha | Valor atual |
 | --- | --- | ---: | --- |
-| Marcador 01/04 (sem JS) | `css/style.css` | 775 | `--gantt-abr: 31.15%` |
-| Marcador 01/05 (sem JS) | `css/style.css` | 776 | `--gantt-mai: 80.33%` |
-| Barra do módulo 1 (sem JS) | `css/style.css` | 782 | `--gantt-left: 0%; --gantt-width: 26.23%` |
-| Barra do módulo 2 (sem JS) | `css/style.css` | 783 | `--gantt-left: 22.95%; --gantt-width: 26.23%` |
-| Barra do módulo 3 (sem JS) | `css/style.css` | 784 | `--gantt-left: 45.90%; --gantt-width: 26.23%` |
-| Barra do módulo 4 (sem JS) | `css/style.css` | 785 | `--gantt-left: 68.85%; --gantt-width: 31.15%` |
+| Marcador 01/04 (sem JS) | `css/style.css` | 827 | `--gantt-abr: 31.15%` |
+| Marcador 01/05 (sem JS) | `css/style.css` | 828 | `--gantt-mai: 80.33%` |
+| Barra do módulo 1 (sem JS) | `css/style.css` | 836 | `--gantt-left: 0%; --gantt-width: 26.23%` |
+| Barra do módulo 2 (sem JS) | `css/style.css` | 837 | `--gantt-left: 22.95%; --gantt-width: 26.23%` |
+| Barra do módulo 3 (sem JS) | `css/style.css` | 838 | `--gantt-left: 45.90%; --gantt-width: 26.23%` |
+| Barra do módulo 4 (sem JS) | `css/style.css` | 839 | `--gantt-left: 68.85%; --gantt-width: 31.15%` |

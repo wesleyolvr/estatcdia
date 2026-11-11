@@ -744,28 +744,80 @@ body.menu-open .menu-scrim {
   padding: 1.35rem 1.35rem 1.45rem;
 }
 
-/* Destaque só de forma: marcador maior laranja e data mais forte.
-   Sem texto ou selo novo. */
-.cronograma li.cronograma-marco::before {
-  left: -0.6rem;
-  top: 0.25rem;
-  width: 0.95rem;
-  height: 0.95rem;
+/* Grade de cards de data (inscrições e bolsas). Sem linha vertical. */
+.cronograma-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .cronograma-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cronograma-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cronograma-cards li {
+  position: relative;
+  margin: 0;
+  padding: 0.95rem 1rem 1.05rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-top-width: 3px;
+  border-top-color: var(--border);
+  border-radius: var(--radius);
+}
+
+.cronograma-cards li::before {
+  content: none;
+}
+
+.cronograma-cards li.cronograma-marco {
+  border-top-color: var(--orange);
+  background: var(--white);
+}
+
+.cronograma-cards time {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 750;
+  line-height: 1.35;
+  color: var(--blue-dark);
+  background: var(--blue-tint);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cronograma-cards li.cronograma-marco time {
+  font-size: 0.875rem;
+  font-weight: 750;
+  color: var(--text);
   background: var(--orange);
 }
 
-.cronograma li.cronograma-marco time {
-  font-size: 1.15em;
-  font-weight: 800;
+.cronograma-cards span {
+  display: block;
+  font-weight: 550;
+  line-height: 1.35;
 }
 
-.cronograma li.cronograma-marco[data-estado="passada"]::before {
-  background: var(--white);
-  box-shadow: inset 0 0 0 2px var(--orange);
-}
-
-.cronograma-aulas {
-  margin-bottom: 1.5rem;
+.aulas-periodo {
+  margin: 0 0 1.1rem;
+  color: var(--blue-dark);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Gráfico das aulas. Posições-padrão (13/03/2027 a 13/05/2027 = 61 dias,
@@ -775,7 +827,9 @@ body.menu-open .menu-scrim {
   --gantt-abr: 31.15%;
   --gantt-mai: 80.33%;
   --gantt-fim: 100%;
-  margin-top: 0.35rem;
+  --gantt-label: minmax(13.5rem, 40%);
+  --gantt-gap: 1.15rem;
+  margin-top: 0.15rem;
   min-width: 0;
 }
 
@@ -786,12 +840,18 @@ body.menu-open .menu-scrim {
 
 .gantt-eixo {
   position: relative;
-  height: 1.35rem;
-  margin-bottom: 0.65rem;
+  height: 1.25rem;
+  margin-bottom: 0.2rem;
   font-size: 0.8125rem;
   font-weight: 650;
   color: var(--blue-text);
   font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 399px) {
+  .gantt-eixo {
+    font-size: 0.75rem;
+  }
 }
 
 .gantt-marcador {
@@ -819,17 +879,8 @@ body.menu-open .menu-scrim {
   transform: translateX(-100%);
 }
 
-@media (max-width: 399px) {
-  .gantt-eixo {
-    height: 2.6rem;
-    font-size: 0.75rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .gantt-marcador-abr,
-  .gantt-marcador-fim {
-    top: 1.3rem;
-  }
+.gantt-grades {
+  display: none;
 }
 
 .gantt-lista {
@@ -837,11 +888,11 @@ body.menu-open .menu-scrim {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.25rem;
+  gap: 0.15rem;
 }
 
 .gantt-lista > li {
-  padding: 0.7rem 0;
+  padding: 0.55rem 0;
   border-radius: var(--radius);
 }
 
@@ -855,8 +906,8 @@ body.menu-open .menu-scrim {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.4rem 0.75rem;
-  margin-bottom: 0.5rem;
+  gap: 0.3rem 0.65rem;
+  margin-bottom: 0.45rem;
 }
 
 .gantt-cabeca .modulo-selo {
@@ -865,7 +916,7 @@ body.menu-open .menu-scrim {
 
 .gantt-cabeca h4 {
   margin: 0;
-  flex: 1 1 14rem;
+  flex: 1 1 10rem;
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
@@ -875,25 +926,17 @@ body.menu-open .menu-scrim {
 }
 
 .gantt-datas {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  display: block;
   margin: 0;
-  color: var(--blue-dark);
+  color: var(--blue-text);
+  font-size: 0.8125rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
-.gantt-datas .icone {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex: 0 0 auto;
-  color: var(--blue-dark);
-}
-
 .gantt-pista {
   position: relative;
-  height: 0.9rem;
+  height: 0.8rem;
   background: var(--track);
   border-radius: 999px;
   overflow: hidden;
@@ -940,42 +983,75 @@ body.menu-open .menu-scrim {
 .gantt-lista > li:nth-child(3) .gantt-barra { background: var(--blue-dark); }
 .gantt-lista > li:nth-child(4) .gantt-barra { background: var(--blue-deep); }
 
-.cronograma {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-left: 3px solid var(--blue);
-}
+@media (min-width: 768px) {
+  .gantt-eixo-row,
+  .gantt-corpo {
+    display: grid;
+    grid-template-columns: var(--gantt-label) 1fr;
+    column-gap: var(--gantt-gap);
+    align-items: stretch;
+  }
 
-.cronograma li {
-  position: relative;
-  padding: 0 0 1.35rem 1.35rem;
-}
+  .gantt-eixo {
+    grid-column: 2;
+    margin-bottom: 0.1rem;
+  }
 
-.cronograma li:last-child {
-  padding-bottom: 0;
-}
+  .gantt-corpo {
+    position: relative;
+  }
 
-.cronograma li::before {
-  content: "";
-  position: absolute;
-  left: -0.45rem;
-  top: 0.4rem;
-  width: 0.65rem;
-  height: 0.65rem;
-  border-radius: 50%;
-  background: var(--blue);
-}
+  .gantt-grades {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
 
-.cronograma time {
-  display: block;
-  font-weight: 750;
-  color: var(--blue-text);
-  font-variant-numeric: tabular-nums;
-}
+  .gantt-grades .gantt-linha {
+    opacity: 0.5;
+  }
 
-.cronograma span {
-  display: block;
+  .gantt-lista {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: subgrid;
+    column-gap: var(--gantt-gap);
+    row-gap: 0.15rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gantt-lista > li {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    column-gap: var(--gantt-gap);
+    align-items: center;
+    padding: 0.45rem 0;
+  }
+
+  .gantt-cabeca {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.2rem;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .gantt-cabeca h4 {
+    flex: none;
+    font-size: 0.98rem;
+  }
+
+  .gantt-pista .gantt-linha {
+    display: none;
+  }
 }
 
 /* Investimento */
@@ -1575,19 +1651,10 @@ body.menu-open .menu-scrim {
   background: var(--blue);
 }
 
-/* Calendário: marcador por estado (vazado = já passou; com anel = próxima ou em curso) */
-.cronograma li[data-estado="passada"]::before {
-  background: var(--white);
-  box-shadow: inset 0 0 0 2px var(--blue);
-}
-
-.cronograma li[data-estado="proxima"]::before {
-  left: -0.6rem;
-  top: 0.25rem;
-  width: 0.95rem;
-  height: 0.95rem;
-  background: var(--orange);
-  box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--blue-dark);
+/* Calendário: o JS ainda marca data-estado; no mockup o destaque visual
+   fica só na faixa e na pílula dos prazos (15/01 e 28/02). */
+.cronograma-cards li[data-estado="passada"] {
+  opacity: 0.72;
 }
 
 /* Investimento: a soma em forma de equação */
@@ -1906,9 +1973,6 @@ body.menu-open .menu-scrim {
 .motion-ok .cta-histograma.is-visto rect:nth-child(3n) { animation-delay: 0.12s; }
 .motion-ok .cta-histograma.is-visto rect:nth-child(4n) { animation-delay: 0.18s; }
 
-.motion-ok .cronograma li[data-estado="proxima"]::before {
-  animation: selo-entra 0.3s var(--ease-out) 0.2s both;
-}
 
 .motion-ok .btn-copiar.is-copiado .traco-check {
   stroke-dasharray: 1;

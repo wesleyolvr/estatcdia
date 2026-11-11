@@ -424,7 +424,7 @@
         <div class="cal-grupos">
           <article class="card card-calendario" data-anima>
             <h3>Inscrições e bolsas</h3>
-            <ol class="cronograma" data-cronograma>
+            <ol class="cronograma cronograma-cards" data-cronograma>
               <li>
                 <!-- EDITAR: início das inscrições -->
                 <time datetime="2026-12-01">01/12/2026</time>
@@ -450,100 +450,102 @@
 
           <article class="card card-calendario" data-anima>
             <h3>Aulas</h3>
-            <ol class="cronograma cronograma-aulas" data-cronograma>
-              <li>
-                <!-- EDITAR: início das aulas -->
-                <time datetime="2027-03-13">13/03/2027</time>
-                <span>Início das aulas</span>
-              </li>
-              <li>
-                <!-- EDITAR: término das aulas -->
-                <time datetime="2027-05-13">13/05/2027</time>
-                <span>Término das aulas</span>
-              </li>
-            </ol>
+            <p class="aulas-periodo cronograma-aulas">
+              <!-- EDITAR: início das aulas -->
+              <time datetime="2027-03-13">13/03</time>
+              a
+              <!-- EDITAR: término das aulas -->
+              <time datetime="2027-05-13">13/05/2027</time>
+              · 60 horas
+            </p>
 
             <div class="gantt" data-gantt data-anima>
-              <div class="gantt-eixo" aria-hidden="true">
-                <span class="gantt-marcador gantt-marcador-ini" data-gantt-marca="2027-03-13">13/03</span>
-                <span class="gantt-marcador gantt-marcador-abr" data-gantt-marca="2027-04-01">01/04</span>
-                <span class="gantt-marcador gantt-marcador-mai" data-gantt-marca="2027-05-01">01/05</span>
-                <span class="gantt-marcador gantt-marcador-fim" data-gantt-marca="2027-05-13">13/05</span>
+              <div class="gantt-eixo-row">
+                <div class="gantt-eixo" aria-hidden="true">
+                  <span class="gantt-marcador gantt-marcador-ini" data-gantt-marca="2027-03-13">13/03</span>
+                  <span class="gantt-marcador gantt-marcador-abr" data-gantt-marca="2027-04-01">01/04</span>
+                  <span class="gantt-marcador gantt-marcador-mai" data-gantt-marca="2027-05-01">01/05</span>
+                  <span class="gantt-marcador gantt-marcador-fim" data-gantt-marca="2027-05-13">13/05</span>
+                </div>
               </div>
-              <ol class="gantt-lista">
-                <li>
-                  <div class="gantt-cabeca">
-                    <p class="modulo-selo">Módulo 1</p>
-                    <h4>Fundamentos de Estatística para Ciência de Dados e IA</h4>
-                    <p class="gantt-datas">
-                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
-                      <!-- EDITAR: datas do módulo 1 -->
-                      <time datetime="2027-03-13" data-fim="2027-03-28">13 a 28/03/2027</time>
-                    </p>
-                  </div>
-                  <div class="gantt-pista" aria-hidden="true">
-                    <span class="gantt-linha gantt-linha-ini"></span>
-                    <span class="gantt-linha gantt-linha-abr"></span>
-                    <span class="gantt-linha gantt-linha-mai"></span>
-                    <span class="gantt-linha gantt-linha-fim"></span>
-                    <span class="gantt-barra"></span>
-                  </div>
-                </li>
-                <li>
-                  <div class="gantt-cabeca">
-                    <p class="modulo-selo">Módulo 2</p>
-                    <h4>Inferência, Modelagem Estatística e Desenho Experimental</h4>
-                    <p class="gantt-datas">
-                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
-                      <!-- EDITAR: datas do módulo 2 -->
-                      <time datetime="2027-03-27" data-fim="2027-04-11">27/03 a 11/04/2027</time>
-                    </p>
-                  </div>
-                  <div class="gantt-pista" aria-hidden="true">
-                    <span class="gantt-linha gantt-linha-ini"></span>
-                    <span class="gantt-linha gantt-linha-abr"></span>
-                    <span class="gantt-linha gantt-linha-mai"></span>
-                    <span class="gantt-linha gantt-linha-fim"></span>
-                    <span class="gantt-barra"></span>
-                  </div>
-                </li>
-                <li>
-                  <div class="gantt-cabeca">
-                    <p class="modulo-selo">Módulo 3</p>
-                    <h4>Séries Temporais e Modelos Preditivos</h4>
-                    <p class="gantt-datas">
-                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
-                      <!-- EDITAR: datas do módulo 3 -->
-                      <time datetime="2027-04-10" data-fim="2027-04-25">10 a 25/04/2027</time>
-                    </p>
-                  </div>
-                  <div class="gantt-pista" aria-hidden="true">
-                    <span class="gantt-linha gantt-linha-ini"></span>
-                    <span class="gantt-linha gantt-linha-abr"></span>
-                    <span class="gantt-linha gantt-linha-mai"></span>
-                    <span class="gantt-linha gantt-linha-fim"></span>
-                    <span class="gantt-barra"></span>
-                  </div>
-                </li>
-                <li>
-                  <div class="gantt-cabeca">
-                    <p class="modulo-selo">Módulo 4</p>
-                    <h4>Inferência Bayesiana e Causal para Ciência de Dados</h4>
-                    <p class="gantt-datas">
-                      <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg>
-                      <!-- EDITAR: datas do módulo 4 -->
-                      <time datetime="2027-04-24" data-fim="2027-05-13">24/04 a 13/05/2027</time>
-                    </p>
-                  </div>
-                  <div class="gantt-pista" aria-hidden="true">
-                    <span class="gantt-linha gantt-linha-ini"></span>
-                    <span class="gantt-linha gantt-linha-abr"></span>
-                    <span class="gantt-linha gantt-linha-mai"></span>
-                    <span class="gantt-linha gantt-linha-fim"></span>
-                    <span class="gantt-barra"></span>
-                  </div>
-                </li>
-              </ol>
+              <div class="gantt-corpo">
+                <div class="gantt-grades" aria-hidden="true">
+                  <span class="gantt-linha gantt-linha-ini"></span>
+                  <span class="gantt-linha gantt-linha-abr"></span>
+                  <span class="gantt-linha gantt-linha-mai"></span>
+                  <span class="gantt-linha gantt-linha-fim"></span>
+                </div>
+                <ol class="gantt-lista">
+                  <li>
+                    <div class="gantt-cabeca">
+                      <p class="modulo-selo">Módulo 1</p>
+                      <h4>Fundamentos de Estatística para Ciência de Dados e IA</h4>
+                      <p class="gantt-datas">
+                        <!-- EDITAR: datas do módulo 1 -->
+                        <time datetime="2027-03-13" data-fim="2027-03-28">13 a 28/03/2027</time>
+                      </p>
+                    </div>
+                    <div class="gantt-pista" aria-hidden="true">
+                      <span class="gantt-linha gantt-linha-ini"></span>
+                      <span class="gantt-linha gantt-linha-abr"></span>
+                      <span class="gantt-linha gantt-linha-mai"></span>
+                      <span class="gantt-linha gantt-linha-fim"></span>
+                      <span class="gantt-barra"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="gantt-cabeca">
+                      <p class="modulo-selo">Módulo 2</p>
+                      <h4>Inferência, Modelagem Estatística e Desenho Experimental</h4>
+                      <p class="gantt-datas">
+                        <!-- EDITAR: datas do módulo 2 -->
+                        <time datetime="2027-03-27" data-fim="2027-04-11">27/03 a 11/04/2027</time>
+                      </p>
+                    </div>
+                    <div class="gantt-pista" aria-hidden="true">
+                      <span class="gantt-linha gantt-linha-ini"></span>
+                      <span class="gantt-linha gantt-linha-abr"></span>
+                      <span class="gantt-linha gantt-linha-mai"></span>
+                      <span class="gantt-linha gantt-linha-fim"></span>
+                      <span class="gantt-barra"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="gantt-cabeca">
+                      <p class="modulo-selo">Módulo 3</p>
+                      <h4>Séries Temporais e Modelos Preditivos</h4>
+                      <p class="gantt-datas">
+                        <!-- EDITAR: datas do módulo 3 -->
+                        <time datetime="2027-04-10" data-fim="2027-04-25">10 a 25/04/2027</time>
+                      </p>
+                    </div>
+                    <div class="gantt-pista" aria-hidden="true">
+                      <span class="gantt-linha gantt-linha-ini"></span>
+                      <span class="gantt-linha gantt-linha-abr"></span>
+                      <span class="gantt-linha gantt-linha-mai"></span>
+                      <span class="gantt-linha gantt-linha-fim"></span>
+                      <span class="gantt-barra"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="gantt-cabeca">
+                      <p class="modulo-selo">Módulo 4</p>
+                      <h4>Inferência Bayesiana e Causal para Ciência de Dados</h4>
+                      <p class="gantt-datas">
+                        <!-- EDITAR: datas do módulo 4 -->
+                        <time datetime="2027-04-24" data-fim="2027-05-13">24/04 a 13/05/2027</time>
+                      </p>
+                    </div>
+                    <div class="gantt-pista" aria-hidden="true">
+                      <span class="gantt-linha gantt-linha-ini"></span>
+                      <span class="gantt-linha gantt-linha-abr"></span>
+                      <span class="gantt-linha gantt-linha-mai"></span>
+                      <span class="gantt-linha gantt-linha-fim"></span>
+                      <span class="gantt-barra"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
             </div>
           </article>
         </div>
