@@ -8,7 +8,7 @@ Se o domínio previsto deixar de ser `https://estatcdia.icmc.usp.br/`, atualize 
 
 ## Datas que controlam os selos e os botões (`js/main.js`)
 
-Os selos ao lado das datas (hero e Bolsas), o atributo `data-estado` nos cards do Calendário, o pulso do botão **Inscreva-se** e a retirada dos botões depois do prazo são calculados por estas datas, no horário de Brasília (`America/Sao_Paulo`). Um prazo vale até o fim do dia indicado (23h59).
+Os selos ao lado das datas no hero, o atributo `data-estado` nos cards do Calendário, o pulso do botão **Inscreva-se** e a retirada dos botões depois do prazo são calculados por estas datas, no horário de Brasília (`America/Sao_Paulo`). Um prazo vale até o fim do dia indicado (23h59).
 
 **Se mudar uma data, mude também no HTML** (tabela **Datas exibidas na página**, abaixo): o texto da página e o JS são independentes.
 
@@ -71,18 +71,18 @@ O selo **Inscrições** usa de 01/12/2026 a 28/02/2027; o selo **Pedido de bolsa
 | link do formulário de bolsa | hero | `index.html` | 160 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
 | link de inscrição no Sistema Apolo | Programa | `index.html` | 415 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
 | link de inscrição no Sistema Apolo | Investimento | `index.html` | 607 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
-| link do formulário de bolsa | Bolsas | `index.html` | 677 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
-| link do formulário de bolsa | FAQ | `index.html` | 791 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
-| link de inscrição no Sistema Apolo | CTA final | `index.html` | 830 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
-| link do formulário de bolsa | CTA final | `index.html` | 832 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link do formulário de bolsa | Bolsas | `index.html` | 678 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link do formulário de bolsa | FAQ | `index.html` | 794 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
+| link de inscrição no Sistema Apolo | CTA final | `index.html` | 833 | `https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002&numseqo` |
+| link do formulário de bolsa | CTA final | `index.html` | 835 | `https://forms.gle/ajA7WCKkDiWJxV3k8` |
 | JSON-LD offers.url (Apolo) | head (JSON-LD) | `index.html` | 73 | `"url": "https://uspdigital.usp.br/apolo/apoObterCurso?cod_curso=550300021&cod_edicao=26002` |
 
 ## E-mail
 
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
-| e-mail de contato | FAQ | `index.html` | 803 | `estatcdia@icmc.usp.br` |
-| e-mail de contato | rodapé | `index.html` | 849 | `estatcdia@icmc.usp.br` |
+| e-mail de contato | FAQ | `index.html` | 806 | `estatcdia@icmc.usp.br` |
+| e-mail de contato | rodapé | `index.html` | 852 | `estatcdia@icmc.usp.br` |
 | JSON-LD provider.email | head (JSON-LD) | `index.html` | 62 | `"email": "estatcdia@icmc.usp.br"` |
 
 ## Chave PIX
@@ -90,7 +90,7 @@ O selo **Inscrições** usa de 01/12/2026 a 28/02/2027; o selo **Pedido de bolsa
 | O que editar | Onde | Arquivo | Linha | Valor atual |
 | --- | --- | --- | ---: | --- |
 | chave PIX da taxa de inscrição | Investimento | `index.html` | 614 | `leticia.cursos@fafq.org.br` |
-| chave PIX da taxa de inscrição | FAQ | `index.html` | 744 | `leticia.cursos@fafq.org.br.` |
+| chave PIX da taxa de inscrição | FAQ | `index.html` | 747 | `leticia.cursos@fafq.org.br.` |
 
 ## Valores, parcelas e formas de pagamento
 
@@ -104,14 +104,14 @@ O selo **Inscrições** usa de 01/12/2026 a 28/02/2027; o selo **Pedido de bolsa
 | total para pagantes | Investimento | `index.html` | 586 | `R$ 1.399,00` |
 | taxa de inscrição | Investimento | `index.html` | 596 | `R$ 100,00` |
 | forma de pagamento da taxa | Investimento | `index.html` | 599 | `PIX` |
-| taxa de inscrição | FAQ | `index.html` | 739 | `R$ 100,00, via` |
-| forma de pagamento da taxa | FAQ | `index.html` | 741 | `PIX` |
-| valor do curso | FAQ | `index.html` | 747 | `R$ 1.299,00, por` |
-| formas de pagamento do curso | FAQ | `index.html` | 749 | `PIX ou boleto, em até` |
-| número de parcelas do curso | FAQ | `index.html` | 751 | `3 parcelas.` |
-| total para pagantes | FAQ | `index.html` | 754 | `R$ 1.399,00.` |
-| taxa de inscrição | FAQ | `index.html` | 764 | `R$ 100,00` |
-| forma de pagamento da taxa | FAQ | `index.html` | 767 | `PIX` |
+| taxa de inscrição | FAQ | `index.html` | 742 | `R$ 100,00, via` |
+| forma de pagamento da taxa | FAQ | `index.html` | 744 | `PIX` |
+| valor do curso | FAQ | `index.html` | 750 | `R$ 1.299,00, por` |
+| formas de pagamento do curso | FAQ | `index.html` | 752 | `PIX ou boleto, em até` |
+| número de parcelas do curso | FAQ | `index.html` | 754 | `3 parcelas.` |
+| total para pagantes | FAQ | `index.html` | 757 | `R$ 1.399,00.` |
+| taxa de inscrição | FAQ | `index.html` | 767 | `R$ 100,00` |
+| forma de pagamento da taxa | FAQ | `index.html` | 770 | `PIX` |
 | JSON-LD offers.price | head (JSON-LD) | `index.html` | 71 | `"price": "1399.00"` |
 
 ## Datas exibidas na página
@@ -141,17 +141,17 @@ Nas linhas com `<time datetime="AAAA-MM-DD">`, troque também o `datetime` (e o 
 | datas do módulo 2 | Calendário (gráfico) | `index.html` | 502 | `27/03 a 11/04/2027` |
 | datas do módulo 3 | Calendário (gráfico) | `index.html` | 519 | `10 a 25/04/2027` |
 | datas do módulo 4 | Calendário (gráfico) | `index.html` | 536 | `24/04 a 13/05/2027` |
-| prazo para pedido de bolsa | Bolsas | `index.html` | 662 | `15/01/2027` |
-| resultado das bolsas | Bolsas | `index.html` | 671 | `31/01/2027` |
-| início das aulas | FAQ | `index.html` | 710 | `13/03/2027` |
-| término das aulas | FAQ | `index.html` | 713 | `13/05/2027.` |
-| início das inscrições | FAQ | `index.html` | 716 | `01/12/2026` |
-| fim das inscrições | FAQ | `index.html` | 719 | `28/02/2027.` |
-| prazo para pedido de bolsa | FAQ | `index.html` | 785 | `15/01/2027` |
-| resultado das bolsas | FAQ | `index.html` | 788 | `31/01/2027.` |
-| início das inscrições | CTA final | `index.html` | 820 | `01/12/2026` |
-| fim das inscrições | CTA final | `index.html` | 823 | `28/02/2027.` |
-| prazo para pedido de bolsa | CTA final | `index.html` | 826 | `15/01/2027.` |
+| prazo para pedido de bolsa | Bolsas | `index.html` | 664 | `15/01/2027` |
+| resultado das bolsas | Bolsas | `index.html` | 672 | `31/01/2027` |
+| início das aulas | FAQ | `index.html` | 713 | `13/03/2027` |
+| término das aulas | FAQ | `index.html` | 716 | `13/05/2027.` |
+| início das inscrições | FAQ | `index.html` | 719 | `01/12/2026` |
+| fim das inscrições | FAQ | `index.html` | 722 | `28/02/2027.` |
+| prazo para pedido de bolsa | FAQ | `index.html` | 788 | `15/01/2027` |
+| resultado das bolsas | FAQ | `index.html` | 791 | `31/01/2027.` |
+| início das inscrições | CTA final | `index.html` | 823 | `01/12/2026` |
+| fim das inscrições | CTA final | `index.html` | 826 | `28/02/2027.` |
+| prazo para pedido de bolsa | CTA final | `index.html` | 829 | `15/01/2027.` |
 | JSON-LD startDate | head (JSON-LD) | `index.html` | 78 | `"startDate": "2027-03-13"` |
 | JSON-LD endDate | head (JSON-LD) | `index.html` | 79 | `"endDate": "2027-05-13"` |
 
@@ -164,9 +164,9 @@ As datas 15/01/2027 e 28/02/2027 usam a classe `cronograma-marco` (faixa laranja
 | código do curso | Sobre | `index.html` | 223 | `550300021` |
 | edição do curso | Sobre | `index.html` | 227 | `26002` |
 | número de vagas gratuitas | Bolsas | `index.html` | 630 | `45` |
-| total de vagas | Bolsas | `index.html` | 638 | `450` |
-| número de vagas gratuitas | FAQ | `index.html` | 779 | `45` |
-| total de vagas | FAQ | `index.html` | 782 | `450` |
+| total de vagas | Bolsas | `index.html` | 637 | `450` |
+| número de vagas gratuitas | FAQ | `index.html` | 782 | `45` |
+| total de vagas | FAQ | `index.html` | 785 | `450` |
 | JSON-LD courseCode | head (JSON-LD) | `index.html` | 55 | `"courseCode": "550300021"` |
 | JSON-LD identifier (edição) | head (JSON-LD) | `index.html` | 80 | `"identifier": "26002"` |
 
@@ -200,7 +200,7 @@ Ainda não há arquivo da logo do curso. O espaço reservado está em `index.htm
 
 ## Gráfico de vagas (Bolsas)
 
-São 450 pontos (30 colunas × 15 linhas); os 45 primeiros ficam em destaque: uma linha inteira (30) em `index.html`, linha 651, mais 15 pontos da linha seguinte (`width="150"`, 15 × 10) na linha 652. Se o número de vagas mudar, ajuste essas larguras (10 por ponto) e o `aria-label` do `<svg class="vagas-grafico">`.
+São 450 pontos (10 linhas × 45 colunas). Os 45 primeiros — a primeira linha inteira — ficam em destaque no retângulo `.vagas-destaque-1` em `index.html`, linha 652 (`width="450" height="15"`, 45 × 15). A data 15/01/2027 no card usa a classe `bolsas-ficha-marco` (pílula laranja com texto `#1A1A1A`), no mesmo critério do Calendário. Se o número de vagas mudar, ajuste essa largura (10 por ponto, 15 de altura) e o `aria-label` do `.vagas-grafico-wrap`.
 
 ## Gráfico das aulas (Calendário)
 

@@ -623,58 +623,61 @@
       <div class="wrap">
         <div class="bolsas-destaque">
           <h2 id="titulo-bolsas">Bolsas</h2>
-          <div class="vagas">
-            <p class="vaga">
+          <div class="bolsas-corpo">
+            <p class="vagas-resumo">
               <span class="vaga-numero">
                 <!-- EDITAR: número de vagas gratuitas -->
                 45
               </span>
-              vagas gratuitas
-            </p>
-            <p class="vaga">
-              de um total de
-              <span class="vaga-numero">
-                <!-- EDITAR: total de vagas -->
-                450
+              <span class="vagas-resumo-textos">
+                <span class="vagas-resumo-legenda">vagas gratuitas</span>
+                <span class="vagas-resumo-total">
+                  de um total de
+                  <!-- EDITAR: total de vagas -->
+                  <span class="vaga-total">450</span>
+                  vagas
+                </span>
               </span>
-              vagas
             </p>
+            <!-- Gráfico: 450 pontos em 10 linhas × 45 pontos; a primeira linha (45) fica em destaque.
+                 Se mudar as vagas, ajuste o retângulo .vagas-destaque e o aria-label. -->
+            <div class="vagas-grafico-wrap" role="img" aria-label="45 vagas gratuitas (de um total de 450 vagas)" data-anima>
+              <svg class="vagas-grafico" viewBox="0 0 450 150" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="p-vaga-claro" width="10" height="15" patternUnits="userSpaceOnUse"><circle cx="5" cy="7.5" r="4.4" class="vaga-ponto-claro"/></pattern>
+                  <pattern id="p-vaga-escuro" width="10" height="15" patternUnits="userSpaceOnUse"><circle cx="5" cy="7.5" r="4.7" class="vaga-ponto-escuro"/></pattern>
+                </defs>
+                <rect width="450" height="150" fill="url(#p-vaga-claro)"/>
+                <g class="vagas-destaque">
+                  <rect class="vagas-destaque-1" width="450" height="15" fill="url(#p-vaga-escuro)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="bolsas-detalhes">
+              <p>Prioridade: mulheres cis, pessoas trans e não-binárias em vulnerabilidade socioeconômica.</p>
+              <div class="bolsas-prazos">
+                <p class="bolsas-ficha bolsas-ficha-marco">
+                  <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
+                  <span>
+                    Pedido de bolsa até
+                    <!-- EDITAR: prazo para pedido de bolsa -->
+                    <time datetime="2027-01-15">15/01/2027</time>
+                  </span>
+                </p>
+                <p class="bolsas-ficha">
+                  <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-resultado"></use></svg>
+                  <span>
+                    Resultado até
+                    <!-- EDITAR: resultado das bolsas -->
+                    <time datetime="2027-01-31">31/01/2027</time>
+                  </span>
+                </p>
+              </div>
+              <p>A taxa de inscrição é devolvida apenas aos contemplados.</p>
+              <!-- EDITAR: link do formulário de bolsa -->
+              <a class="btn btn-escuro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener" data-botao-inscricao>Solicitar bolsa<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
+            </div>
           </div>
-          <!-- Gráfico: 450 pontos, os 45 primeiros em destaque (se mudar as vagas, ajuste os retângulos .vagas-destaque) -->
-          <svg class="vagas-grafico" viewBox="0 0 300 150" role="img" aria-label="45 vagas gratuitas (de um total de 450 vagas)" data-anima>
-            <defs>
-              <pattern id="p-vaga-claro" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2.6" class="vaga-ponto-claro"/></pattern>
-              <pattern id="p-vaga-escuro" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3.2" class="vaga-ponto-escuro"/></pattern>
-            </defs>
-            <rect width="300" height="150" fill="url(#p-vaga-claro)"/>
-            <g class="vagas-destaque">
-              <rect class="vagas-destaque-1" width="300" height="10" fill="url(#p-vaga-escuro)"/>
-              <rect class="vagas-destaque-2" y="10" width="150" height="10" fill="url(#p-vaga-escuro)"/>
-            </g>
-          </svg>
-          <p>Prioridade: mulheres cis, pessoas trans e não-binárias em vulnerabilidade socioeconômica.</p>
-          <div class="bolsas-prazos">
-            <p class="bolsas-ficha">
-              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"></use></svg>
-              <span>
-                Pedido de bolsa até
-                <!-- EDITAR: prazo para pedido de bolsa -->
-                <time datetime="2027-01-15">15/01/2027</time>
-              </span>
-              <span class="selo" data-selo="bolsa" aria-hidden="true"></span>
-            </p>
-            <p class="bolsas-ficha">
-              <svg class="icone" aria-hidden="true" focusable="false"><use href="#i-resultado"></use></svg>
-              <span>
-                Resultado até
-                <!-- EDITAR: resultado das bolsas -->
-                <time datetime="2027-01-31">31/01/2027</time>
-              </span>
-            </p>
-          </div>
-          <p>A taxa de inscrição é devolvida apenas aos contemplados.</p>
-          <!-- EDITAR: link do formulário de bolsa -->
-          <a class="btn btn-escuro" href="https://forms.gle/ajA7WCKkDiWJxV3k8" target="_blank" rel="noopener" data-botao-inscricao>Solicitar bolsa<span class="visually-hidden"> (abre em uma nova aba)</span><svg class="icone-externo" aria-hidden="true" focusable="false"><use href="#i-externo"></use></svg></a>
         </div>
       </div>
     </section>

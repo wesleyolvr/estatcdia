@@ -9,6 +9,7 @@
   --blue-dark: #3D5168;
   --blue-text: #3D5168;
   --blue-tint: #E8EDF2;
+  --blue-soft: #C3CDD9; /* cinza-azulado claro: fundo da grade de bolsas (a proporção também está no aria-label e no texto) */
   --orange: #F9A649;
   --orange-hover: #E3943A;
   --orange-active: #D98A2F;
@@ -1136,49 +1137,97 @@ body.menu-open .menu-scrim {
   min-height: 1.4em;
 }
 
-/* Bolsas */
+/* Bolsas: card branco com faixa laranja no topo */
 .bolsas-destaque {
-  background: var(--orange);
+  background: var(--white);
   color: var(--text);
-  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--orange);
+  border-radius: var(--radius);
   padding: 1.5rem 1.4rem 1.6rem;
 }
 
 .bolsas-destaque h2 {
-  color: var(--text);
-  margin-bottom: 1rem;
+  color: var(--blue-dark);
+  margin-bottom: 1.15rem;
 }
 
 .bolsas-destaque a:not(.btn) {
-  color: var(--text);
+  color: var(--blue-dark);
   font-weight: 700;
 }
 
-.vagas {
+.bolsas-corpo {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin: 0 0 1.15rem;
+  flex-direction: column;
+  gap: 1.15rem;
 }
 
-.vaga {
-  background: var(--on-orange-tint);
-  border-radius: 0.35rem;
-  padding: 0.85rem 1rem;
-  min-width: 9rem;
+.vagas-resumo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem 1rem;
+  margin: 0;
 }
 
 .vaga-numero {
-  display: block;
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(3rem, 2.2rem + 3vw, 4.25rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 0.9;
+  color: var(--blue-dark);
   font-variant-numeric: tabular-nums;
 }
 
+.vagas-resumo-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.vagas-resumo-legenda {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  color: var(--blue-dark);
+}
+
+.vagas-resumo-total {
+  color: var(--blue-text);
+  font-weight: 550;
+  line-height: 1.35;
+}
+
+.vaga-total {
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  color: var(--blue-dark);
+}
+
+.bolsas-detalhes p {
+  margin: 0 0 0.9rem;
+}
+
 .bolsas-destaque .btn {
-  margin-top: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+@media (min-width: 1024px) {
+  .bolsas-corpo {
+    display: grid;
+    grid-template-columns: minmax(16rem, 1fr) minmax(20rem, 1.25fr);
+    grid-template-areas:
+      "resumo grafico"
+      "detalhes grafico";
+    column-gap: 2rem;
+    row-gap: 1.1rem;
+    align-items: start;
+  }
+
+  .vagas-resumo { grid-area: resumo; }
+  .vagas-grafico-wrap { grid-area: grafico; }
+  .bolsas-detalhes { grid-area: detalhes; }
 }
 
 /* Coordenação */
@@ -1442,16 +1491,6 @@ body.menu-open .menu-scrim {
 .selo[data-estado="ultimos"] svg {
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--white);
-}
-
-.bolsas-destaque .selo {
-  color: var(--text);
-  --selo-fundo: var(--blue-dark);
-  --selo-traco: var(--white);
-}
-
-.bolsas-destaque .selo[data-estado="ultimos"] svg {
-  box-shadow: 0 0 0 2px var(--text);
 }
 
 /* Programa: cards dos módulos */
@@ -1723,25 +1762,27 @@ body.menu-open .menu-scrim {
   display: block;
 }
 
-/* Bolsas: gráfico 45 de 450 e fichas de prazo */
+/* Bolsas: gráfico 45 de 450 e pílulas de prazo */
+.vagas-grafico-wrap {
+  margin: 0;
+  min-width: 0;
+}
+
 .vagas-grafico {
   display: block;
   width: 100%;
-  max-width: 22rem;
   height: auto;
-  margin: 0 0 1.25rem;
 }
 
 .vaga-ponto-claro {
-  fill: var(--on-orange-faint);
+  fill: var(--blue-soft);
 }
 
 .vaga-ponto-escuro {
   fill: var(--blue-dark);
 }
 
-.vagas-destaque-1,
-.vagas-destaque-2 {
+.vagas-destaque-1 {
   transform-box: fill-box;
   transform-origin: left center;
 }
@@ -1749,21 +1790,52 @@ body.menu-open .menu-scrim {
 .bolsas-prazos {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin: 0 0 1rem;
 }
 
 .bolsas-ficha {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.45rem;
   margin: 0;
-  padding: 0.6rem 0.85rem;
-  background: var(--on-orange-tint);
-  border: 1px solid var(--text);
-  border-radius: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--blue-tint);
+  color: var(--blue-dark);
+  border-radius: 999px;
   font-weight: 650;
   font-variant-numeric: tabular-nums;
+}
+
+.bolsas-ficha .icone {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  margin-top: 0.15em;
+  color: var(--blue-dark);
+}
+
+.bolsas-ficha-marco {
+  background: var(--orange);
+  color: var(--text);
+}
+
+.bolsas-ficha-marco .icone {
+  color: var(--text);
+}
+
+@media (max-width: 399px) {
+  .bolsas-ficha {
+    font-size: 0.8125rem;
+    padding: 0.28rem 0.55rem;
+    gap: 0.3rem;
+  }
+
+  .bolsas-ficha .icone {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.12em;
+  }
 }
 
 /* CTA final: histograma ao fundo */
@@ -1949,16 +2021,12 @@ body.menu-open .menu-scrim {
   animation-delay: 0.3s;
 }
 
-.motion-ok .vagas-grafico[data-anima] .vagas-destaque rect {
+.motion-ok .vagas-grafico-wrap[data-anima] .vagas-destaque rect {
   transform: scaleX(0);
 }
 
-.motion-ok .vagas-grafico[data-anima].is-visto .vagas-destaque-1 {
+.motion-ok .vagas-grafico-wrap[data-anima].is-visto .vagas-destaque-1 {
   animation: cresce-x 0.45s var(--ease-out) both;
-}
-
-.motion-ok .vagas-grafico[data-anima].is-visto .vagas-destaque-2 {
-  animation: cresce-x 0.25s var(--ease-out) 0.45s both;
 }
 
 .motion-ok .cta-histograma[data-anima] rect {
